@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoachMack — Unlock Your Potential</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="navbar__logo">Coach<span>Mack</span></a>
+      <nav class="navbar__links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn--primary navbar__cta">Get Started</a>
+      <button class="navbar__burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__bg"></div>
+    <div class="container hero__content">
+      <span class="badge">Coaching &amp; Performance</span>
+      <h1 class="hero__title">Turn Your Goals Into <span class="highlight">Results</span></h1>
+      <p class="hero__subtitle">
+        Personalised coaching programmes designed to push your performance,
+        sharpen your mindset, and build lasting success — on and off the field.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--primary btn--lg">Book a Free Session</a>
+        <a href="#services" class="btn btn--ghost btn--lg">Explore Services</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat">
+          <span class="stat__number" data-target="500">0</span><span>+</span>
+          <p>Athletes Coached</p>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-target="12">0</span><span>+</span>
+          <p>Years Experience</p>
+        </div>
+        <div class="stat">
+          <span class="stat__number" data-target="98">0</span><span>%</span>
+          <p>Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span>Scroll down</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">What I Offer</span>
+        <h2>Programmes Built for <span class="highlight">Champions</span></h2>
+        <p>Every programme is tailored to your specific goals, schedule, and skill level.</p>
+      </div>
+      <div class="services__grid">
+        <div class="card service-card" data-delay="0">
+          <div class="service-card__icon">🏋️</div>
+          <h3>Strength &amp; Conditioning</h3>
+          <p>Science-backed training plans that build explosive power, endurance, and resilience in your sport.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+        <div class="card service-card" data-delay="100">
+          <div class="service-card__icon">🧠</div>
+          <h3>Mental Performance</h3>
+          <p>Develop the mental toughness, focus, and confidence to perform at your best under pressure.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+        <div class="card service-card" data-delay="200">
+          <div class="service-card__icon">📈</div>
+          <h3>1-on-1 Coaching</h3>
+          <p>Dedicated personal sessions with detailed progress tracking, feedback, and accountability.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+        <div class="card service-card" data-delay="300">
+          <div class="service-card__icon">👥</div>
+          <h3>Group Programmes</h3>
+          <p>High-energy group sessions that foster team culture, motivation, and competitive growth.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+        <div class="card service-card" data-delay="400">
+          <div class="service-card__icon">🥗</div>
+          <h3>Nutrition Guidance</h3>
+          <p>Practical, sport-specific nutrition plans to fuel training, accelerate recovery, and optimise performance.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+        <div class="card service-card" data-delay="500">
+          <div class="service-card__icon">📹</div>
+          <h3>Online Coaching</h3>
+          <p>Full remote coaching experience with video analysis, custom programmes, and weekly check-ins.</p>
+          <a href="#contact" class="link-arrow">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about section" id="about">
+    <div class="container about__inner">
+      <div class="about__image-wrap">
+        <div class="about__image-placeholder">
+          <span>CM</span>
+        </div>
+        <div class="about__badge-float">
+          <span>🏆</span>
+          <div>
+            <strong>Certified Coach</strong>
+            <small>Level 3 Accredited</small>
+          </div>
+        </div>
+      </div>
+      <div class="about__content">
+        <span class="badge">About Me</span>
+        <h2>Hi, I'm <span class="highlight">Coach Mack</span></h2>
+        <p>
+          With over 12 years of elite-level coaching experience, I've helped hundreds of
+          athletes at every stage of their journey — from junior competitors to professional
+          players — reach their true potential.
+        </p>
+        <p>
+          My approach combines evidence-based training methodology with genuine human connection.
+          I don't just build better athletes; I build better people.
+        </p>
+        <ul class="about__list">
+          <li><span class="check">✓</span> Level 3 Certified Strength &amp; Conditioning Coach</li>
+          <li><span class="check">✓</span> Certified Mental Performance Consultant</li>
+          <li><span class="check">✓</span> Former professional athlete — 8 years competitive career</li>
+          <li><span class="check">✓</span> Featured in Sports Performance Quarterly</li>
+        </ul>
+        <a href="#contact" class="btn btn--primary">Work With Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testimonials section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Success Stories</span>
+        <h2>What My Clients <span class="highlight">Say</span></h2>
+      </div>
+      <div class="testimonials__track" id="testimonialTrack">
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p>"Coach Mack completely transformed my approach to training. In six months I went from struggling to make the starting lineup to becoming team captain. His belief in me changed everything."</p>
+          <div class="testimonial-card__author">
+            <div class="avatar">JR</div>
+            <div>
+              <strong>Jamie Roberts</strong>
+              <small>Rugby Union — Regional Squad</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p>"The mental performance work was a game changer. I used to crumble under pressure but now I actually thrive in big moments. Best investment I've ever made in myself."</p>
+          <div class="testimonial-card__author">
+            <div class="avatar">SK</div>
+            <div>
+              <strong>Sarah Kim</strong>
+              <small>Tennis — National Ranking Top 50</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p>"I've worked with a lot of coaches over the years. Coach Mack is different. He actually listens, adapts the programme to your life, and holds you accountable in the best possible way."</p>
+          <div class="testimonial-card__author">
+            <div class="avatar">MT</div>
+            <div>
+              <strong>Marcus Thompson</strong>
+              <small>CrossFit — Competitive Athlete</small>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card card">
+          <div class="stars">★★★★★</div>
+          <p>"Lost 18kg and hit a personal best in my marathon time — all within a year. Coach Mack's nutrition and conditioning programme was the missing piece I had been searching for."</p>
+          <div class="testimonial-card__author">
+            <div class="avatar">LE</div>
+            <div>
+              <strong>Laura Evans</strong>
+              <small>Long-distance Running</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials__dots" id="testimonialDots"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact section" id="contact">
+    <div class="container contact__inner">
+      <div class="contact__info">
+        <span class="badge">Get In Touch</span>
+        <h2>Ready to Start Your <span class="highlight">Journey?</span></h2>
+        <p>Book a free 30-minute discovery call and let's talk about where you want to go.</p>
+        <ul class="contact__details">
+          <li>📧 <a href="mailto:hello@coachmack.com">hello@coachmack.com</a></li>
+          <li>📞 <a href="tel:+00000000000">+1 (000) 000-0000</a></li>
+          <li>📍 Available in-person &amp; online worldwide</li>
+        </ul>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram" class="social-link">IG</a>
+          <a href="#" aria-label="Twitter/X" class="social-link">X</a>
+          <a href="#" aria-label="YouTube" class="social-link">YT</a>
+          <a href="#" aria-label="LinkedIn" class="social-link">LI</a>
+        </div>
+      </div>
+      <form class="contact__form card" id="contactForm" novalidate>
+        <h3>Book Your Free Session</h3>
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required />
+          <span class="form-error" id="nameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          <span class="form-error" id="emailError"></span>
+        </div>
+        <div class="form-group">
+          <label for="service">Interested In</label>
+          <select id="service" name="service">
+            <option value="">Select a service…</option>
+            <option value="strength">Strength &amp; Conditioning</option>
+            <option value="mental">Mental Performance</option>
+            <option value="1on1">1-on-1 Coaching</option>
+            <option value="group">Group Programme</option>
+            <option value="nutrition">Nutrition Guidance</option>
+            <option value="online">Online Coaching</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Me About Your Goals</label>
+          <textarea id="message" name="message" rows="4" placeholder="What do you want to achieve?"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+        <div class="form-success" id="formSuccess">
+          ✅ Thanks! I'll be in touch within 24 hours.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#" class="navbar__logo">Coach<span>Mack</span></a>
+      <p class="footer__copy">&copy; 2026 CoachMack. All rights reserved.</p>
+      <nav class="footer__nav">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
