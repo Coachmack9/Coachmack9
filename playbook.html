@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Receptionist Playbook — 25 Home Service Industries</title>
+  <link rel="stylesheet" href="playbook.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="pb-nav" id="pbNav">
+    <div class="container pb-nav__inner">
+      <a href="index.html" class="pb-nav__logo">Coach<span>Mack</span></a>
+      <span class="pb-nav__sep" aria-hidden="true">|</span>
+      <span class="pb-nav__product">AI Receptionist Playbook</span>
+      <nav class="pb-nav__links" id="pbNavLinks">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#customizer">Customize</a>
+        <a href="#industries">Industries</a>
+        <a href="index.html" class="btn-outline-nav">← Back to Home</a>
+      </nav>
+      <button class="pb-nav__burger" id="pbBurger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="pb-hero">
+    <div class="pb-hero__bg"></div>
+    <div class="container pb-hero__container">
+      <div class="pb-hero__content">
+        <span class="badge">Plug-and-Play Scripts</span>
+        <h1 class="pb-hero__title">The AI Receptionist<br><span class="highlight">Playbook</span></h1>
+        <p class="pb-hero__sub">
+          25 ready-to-use conversation scripts for home service businesses.
+          Fill in your details once — get a warm, professional AI receptionist
+          that captures every lead, never misses a detail, and always promises a callback.
+        </p>
+        <div class="pb-hero__stats">
+          <div class="pb-stat">
+            <strong>25</strong>
+            <span>Industries</span>
+          </div>
+          <div class="pb-stat__sep" aria-hidden="true"></div>
+          <div class="pb-stat">
+            <strong>8</strong>
+            <span>Script Steps</span>
+          </div>
+          <div class="pb-stat__sep" aria-hidden="true"></div>
+          <div class="pb-stat">
+            <strong>6</strong>
+            <span>Variables</span>
+          </div>
+          <div class="pb-stat__sep" aria-hidden="true"></div>
+          <div class="pb-stat">
+            <strong>0</strong>
+            <span>Leads Lost</span>
+          </div>
+        </div>
+        <div class="pb-hero__actions">
+          <a href="#customizer" class="btn btn--primary btn--lg">Get Started →</a>
+          <a href="#how-it-works" class="btn btn--ghost btn--lg">How It Works</a>
+        </div>
+      </div>
+      <div class="pb-hero__preview" aria-hidden="true">
+        <div class="preview-card">
+          <div class="preview-card__label">🟢 Live Call</div>
+          <div class="preview-bubble">
+            "Thank you for calling <strong>{{BusinessName}}</strong>!
+            This is <strong>{{AgentName}}</strong>. How can I help you today?"
+          </div>
+          <div class="preview-bubble preview-bubble--caller">
+            "Hi, I've got a burst pipe under the sink…"
+          </div>
+          <div class="preview-bubble">
+            "I'm so sorry to hear that! Let me make sure we get
+            <strong>{{OwnerName}}</strong> on this right away.
+            Can I grab your name and phone number?"
+          </div>
+          <div class="preview-steps">
+            <span class="ps active">Greeting</span>
+            <span class="ps">Service</span>
+            <span class="ps">Contact</span>
+            <span class="ps">Address</span>
+            <span class="ps">Confirm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ============ FLOW OVERVIEW ============ -->
+  <section class="pb-flow section" id="flow">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Universal Script Flow</span>
+        <h2>Every Script Follows the <span class="highlight">Same 8 Steps</span></h2>
+        <p>Proven, consistent, and designed to capture every lead — regardless of industry.</p>
+      </div>
+      <div class="flow-grid">
+        <div class="flow-card">
+          <div class="flow-card__num">1</div>
+          <h4>Greeting</h4>
+          <p>Time-aware. Adapts automatically for open hours, before opening, and after closing.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">2</div>
+          <h4>Service Type</h4>
+          <p>Industry-specific question to identify exactly what the caller needs.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">3</div>
+          <h4>Description</h4>
+          <p>Capture a brief summary of the job or problem in the caller's own words.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">4</div>
+          <h4>Contact Info</h4>
+          <p>Name and phone number (mandatory). Email is collected but always optional.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">5</div>
+          <h4>Address</h4>
+          <p>Confirm the service location or neighbourhood for the job.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">6</div>
+          <h4>Quotes</h4>
+          <p>Only if asked. Rough range only — never confirm exact pricing.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">7</div>
+          <h4>Confirmation</h4>
+          <p>Read back the details and confirm exactly when the callback will happen.</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-card__num">8</div>
+          <h4>Rules</h4>
+          <p>Built-in guardrails to keep every call on track and on brand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="pb-hiw section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Setup Guide</span>
+        <h2>Three Steps to <span class="highlight">Go Live</span></h2>
+      </div>
+      <div class="hiw-grid">
+        <div class="hiw-card card">
+          <div class="hiw-card__num">01</div>
+          <h3>Fill Your Variables</h3>
+          <p>Enter your agent name, business name, owner name, city, and business hours into the customiser. Takes less than a minute.</p>
+        </div>
+        <div class="hiw-arrow" aria-hidden="true">→</div>
+        <div class="hiw-card card">
+          <div class="hiw-card__num">02</div>
+          <h3>Pick Your Industry</h3>
+          <p>Choose from 25 home service trades. Each script is tailored with niche-specific questions and industry pricing guidance.</p>
+        </div>
+        <div class="hiw-arrow" aria-hidden="true">→</div>
+        <div class="hiw-card card">
+          <div class="hiw-card__num">03</div>
+          <h3>Copy and Deploy</h3>
+          <p>Hit the copy button and paste directly into your AI receptionist platform. Your receptionist is live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMISER ============ -->
+  <section class="pb-customiser section" id="customizer">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Step 1 — Fill Variables</span>
+        <h2>Enter Your <span class="highlight">Business Details</span></h2>
+        <p>These six values will be automatically inserted into every script. Fill them in once.</p>
+      </div>
+      <div class="customiser-card card">
+        <div class="vars-grid">
+          <div class="var-field">
+            <label for="v-agent">
+              <code>{{AgentName}}</code>
+              <span>Receptionist's Name</span>
+            </label>
+            <input type="text" id="v-agent" data-var="agentName"
+              placeholder="e.g., Emily" autocomplete="off" maxlength="40" />
+          </div>
+          <div class="var-field">
+            <label for="v-business">
+              <code>{{BusinessName}}</code>
+              <span>Your Business Name</span>
+            </label>
+            <input type="text" id="v-business" data-var="businessName"
+              placeholder="e.g., Apex Plumbing Co." autocomplete="off" maxlength="60" />
+          </div>
+          <div class="var-field">
+            <label for="v-owner">
+              <code>{{OwnerName}}</code>
+              <span>Owner / Manager Name</span>
+            </label>
+            <input type="text" id="v-owner" data-var="ownerName"
+              placeholder="e.g., Mike" autocomplete="off" maxlength="40" />
+          </div>
+          <div class="var-field">
+            <label for="v-city">
+              <code>{{City/Area}}</code>
+              <span>Your Service Area</span>
+            </label>
+            <input type="text" id="v-city" data-var="cityArea"
+              placeholder="e.g., Austin, TX" autocomplete="off" maxlength="60" />
+          </div>
+          <div class="var-field">
+            <label for="v-open">
+              <code>{{OpenHour}}</code>
+              <span>Opening Time</span>
+            </label>
+            <input type="text" id="v-open" data-var="openHour"
+              placeholder="e.g., 8:00 AM" autocomplete="off" maxlength="20" />
+          </div>
+          <div class="var-field">
+            <label for="v-close">
+              <code>{{CloseHour}}</code>
+              <span>Closing Time</span>
+            </label>
+            <input type="text" id="v-close" data-var="closeHour"
+              placeholder="e.g., 6:00 PM" autocomplete="off" maxlength="20" />
+          </div>
+        </div>
+        <div class="customiser-tip">
+          <span>💡</span>
+          <span>Scripts update live as you type. Click any industry card below to preview your personalised script.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INDUSTRIES ============ -->
+  <section class="pb-industries section" id="industries">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">Step 2 — Pick Your Industry</span>
+        <h2>25 Industries, <span class="highlight">25 Scripts</span></h2>
+        <p>Click any card to preview your customised, ready-to-use script.</p>
+      </div>
+      <div class="industries-grid" id="industriesGrid">
+        <!-- Generated by playbook.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MODAL ============ -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalName">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span class="modal-icon" id="modalIcon" aria-hidden="true"></span>
+          <div>
+            <h2 class="modal-name" id="modalName"></h2>
+            <p class="modal-tagline" id="modalTagline"></p>
+          </div>
+        </div>
+        <div class="modal-header-actions">
+          <button class="btn btn--primary" id="copyBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copyBtnText">Copy Script</span>
+          </button>
+          <button class="modal-close" id="modalClose" aria-label="Close script viewer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Script generated by playbook.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="index.html" class="navbar__logo">Coach<span>Mack</span></a>
+      <p class="footer__copy">&copy; 2026 CoachMack. All rights reserved.</p>
+      <nav class="footer__nav">
+        <a href="index.html">Home</a>
+        <a href="#customizer">Customiser</a>
+        <a href="#industries">Industries</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="playbook.js"></script>
+</body>
+</html>
