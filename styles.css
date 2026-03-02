@@ -798,3 +798,117 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ===========================
+   PLAYBOOK BANNER
+=========================== */
+.playbook-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 55%, #1e1b4b 100%);
+  padding: 80px 0;
+}
+
+.playbook-banner__inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.playbook-banner__eyebrow {
+  display: inline-block;
+  background: rgba(249,115,22,.18);
+  border: 1px solid rgba(249,115,22,.4);
+  color: #fdba74;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.playbook-banner__title {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.playbook-banner__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,.65);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.playbook-banner__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playbook-banner__bullets li {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,.75);
+}
+
+.playbook-banner__card {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.playbook-banner__card-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.pbs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.pbs strong {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.pbs span {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,.5);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.playbook-banner__note {
+  text-align: center;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,.35);
+  margin-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .playbook-banner__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 640px) {
+  .playbook-banner { padding: 60px 0; }
+}
