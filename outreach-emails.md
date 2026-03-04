@@ -1,156 +1,186 @@
-# CoachMack — Outreach Email Templates
+# AI Solutions & Systems — Outreach Email Templates
+### Target: Small Business Contractors in Massachusetts
 
-A collection of ready-to-send email templates for different outreach scenarios.
+Ready-to-send email templates for different outreach scenarios.
 Replace anything in `[square brackets]` before sending.
 
 ---
 
-## 1. Cold Outreach — Athlete / Individual
+## 1. Cold Outreach — General Contractor (Pain Point: Missed Calls)
 
-**Subject:** Free 30-min session for [Name] — no strings attached
-
-Hi [First Name],
-
-I came across your profile / saw you compete at [event/club] and wanted to reach out directly.
-
-I'm Coach Mack — a Level 3 certified Strength & Conditioning Coach and Mental Performance Consultant with 12+ years working with athletes across every level, from juniors all the way up to professional competition.
-
-I offer a **free 30-minute discovery call** for athletes I think I can genuinely help. No pitch, no pressure — just an honest conversation about where you are now and what's holding you back.
-
-A few things I've helped recent clients with:
-- Breaking through performance plateaus that had stalled for months
-- Building mental resilience to perform in high-pressure moments
-- Optimising training load to reduce injury risk while increasing output
-
-If any of that resonates, I'd love to chat. You can book directly at [website URL] or just reply here and we'll find a time that works.
-
-Either way, keep pushing — you're closer than you think.
-
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
-[Website] | [Instagram] | [YouTube]
-
----
-
-## 2. Cold Outreach — Local Sports Club / Team
-
-**Subject:** Strength & performance support for [Club Name]
-
-Hi [Name / Club Manager],
-
-I'm Coach Mack, and I work with sports clubs and teams to build elite-level performance programmes — from strength & conditioning to mental resilience and nutrition.
-
-I've been following [Club Name] and I think there's a real opportunity to take your squad's performance to the next level this season.
-
-Here's what I typically bring to a team partnership:
-- **Pre-season conditioning** — build the physical foundation before the season starts
-- **In-season performance maintenance** — keep players sharp without burning them out
-- **Mental performance workshops** — prepare the squad for high-stakes moments
-- **Individual athlete plans** — tailored programmes for your key players
-
-I work with clubs in-person and online, so logistics are rarely a barrier.
-
-Would you be open to a quick call this week to explore whether this is a good fit? No commitment — just a conversation.
-
-Best,
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
-
----
-
-## 3. Follow-Up After Initial Contact / Discovery Call
-
-**Subject:** Great speaking with you, [First Name] — here's what's next
+**Subject:** Every missed call is a missed job, [First Name]
 
 Hi [First Name],
 
-It was great connecting with you earlier. I enjoyed hearing about your goals and I'm confident we can make some real progress together.
+Quick question — how many calls do you miss while you're on a job site?
 
-As promised, here's a quick summary of what we discussed:
+Most contractors in Massachusetts lose 3–5 potential jobs a week just from unanswered calls. The customer moves on to whoever picks up first.
 
-- **Your goal:** [e.g. increase sprint speed / reduce injury recurrence / manage competition anxiety]
-- **Recommended programme:** [e.g. 12-week 1-on-1 Strength & Conditioning]
-- **Suggested start date:** [date]
+I help local contractors fix that with an **AI voice agent** — it answers every call, 24/7, in your business name. It talks to the customer naturally, captures their details, qualifies the job, and books the appointment directly into your calendar. No receptionist needed.
+
+Here's what contractors I work with typically see:
+- Zero missed leads, even after hours and on weekends
+- 30–40% more booked jobs in the first 60 days
+- Hours of admin time freed up every week
+
+Takes about a week to set up and runs on autopilot after that.
+
+Worth a 15-minute call to see if it makes sense for your business? I work exclusively with contractors here in Massachusetts so I know the local market well.
+
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
+[Website]
+
+---
+
+## 2. Cold Outreach — HVAC / Plumber / Electrician (Pain Point: After-Hours Leads)
+
+**Subject:** Your competitor just answered the call you missed at 8pm
+
+Hi [First Name],
+
+A homeowner's heat goes out on a Friday night. They call three contractors. Whoever answers first gets the job.
+
+That's the reality for [HVAC/plumbing/electrical] contractors — and most are losing those jobs to voicemail.
+
+I build **AI voice agent systems** for small contractors in Massachusetts that answer calls around the clock, handle the conversation naturally, and get the job booked without you lifting a finger. Your phone, your business name — just never goes unanswered again.
+
+It also handles:
+- Appointment reminders so customers don't no-show
+- Automated follow-up on estimates that went quiet
+- Workflow automations that eliminate the back-and-forth admin
+
+No long contracts. Works alongside your existing setup.
+
+I'd love to show you a quick demo — takes 15 minutes and you'll see exactly how it sounds and works. Interested?
+
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
+[Website]
+
+---
+
+## 3. Cold Outreach — Roofing / Landscaping / General Trade (Pain Point: Admin Overload)
+
+**Subject:** Still doing your own scheduling and follow-ups, [First Name]?
+
+Hi [First Name],
+
+Running a contracting business in Massachusetts means wearing about ten hats — and scheduling, following up on leads, and chasing confirmations probably aren't the ones you want to be wearing.
+
+I help small contractors automate that entire layer of the business using **AI voice agents and workflow automations**. Think of it as a virtual operations system that:
+
+- Answers and qualifies every inbound call automatically
+- Books jobs straight into your calendar
+- Sends confirmation and reminder texts/emails to customers
+- Follows up on open estimates so leads don't go cold
+- Notifies you only when something needs your actual attention
+
+You focus on the work. The system handles the rest.
+
+Contractors I've worked with typically get back 8–12 hours a week — and stop losing jobs to competitors who just happened to pick up faster.
+
+Happy to walk you through it on a quick call. No pressure, just a demo so you can see if it fits.
+
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
+
+---
+
+## 4. Follow-Up After Initial Call / Demo
+
+**Subject:** Following up — [Their Business Name] + AI voice system
+
+Hi [First Name],
+
+Really enjoyed our call earlier. It was clear you're running a tight operation and I think there's a genuine opportunity to take some weight off your plate.
+
+To recap what we discussed:
+
+- **Main pain point:** [e.g. missing calls while on job sites / admin time eating into evenings]
+- **Recommended solution:** [e.g. AI voice agent + automated follow-up workflow]
+- **Expected outcome:** [e.g. no missed leads, 8–10 hrs/week saved, faster estimate-to-booking conversion]
+- **Setup timeline:** Approximately 5–7 business days
 
 **Next steps:**
-1. Reply to this email to confirm you'd like to move forward
-2. I'll send over a short intake form so I can tailor the programme to you
-3. We schedule our first full session
+1. Reply to confirm you'd like to move forward
+2. I'll send a short onboarding form to capture your business details
+3. We go live within the week
 
-If you have any questions before committing, just ask — I'd rather you feel completely confident going in.
+If any questions came up after our call, just ask — I'd rather you go in feeling 100% confident.
 
-Looking forward to working with you.
+Looking forward to it.
 
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
 
 ---
 
-## 4. Re-Engagement — Lapsed Lead / Past Enquiry
+## 5. Re-Engagement — Lapsed Lead
 
-**Subject:** Still thinking about your goals, [First Name]
+**Subject:** Still losing jobs to voicemail, [First Name]?
 
 Hi [First Name],
 
-You reached out a while back about [service they enquired about] and I just wanted to check in.
+We spoke a while back about setting up an AI voice agent for [Their Business Name] and I wanted to check in.
 
-Life gets busy — I get it. But I haven't forgotten about you, and I'd love to help if the timing is better now.
+Things change — busy seasons, shifting priorities, I get it. But if the problem we talked about (missed calls, admin overload, slow lead follow-up) is still sitting there, I'd love to revisit the conversation.
 
-A lot can change in a few months. If you're ready to revisit what we talked about, or if your goals have shifted, I'm here to have that conversation again — no pressure, fresh start.
+A few things worth knowing if it's been a while:
+- Setup is faster than ever — most contractors are live within a week
+- The system now handles even more: estimate follow-ups, job confirmations, customer FAQs
+- I'm still focused exclusively on contractors in Massachusetts, so the setup is dialled in for your market
 
-I still have a couple of slots open this month for new clients. If you want to lock one in, book a free 30-minute call at [website URL] or just hit reply.
+If the timing is better now, I'm happy to do a fresh 15-minute demo — no need to pick up where we left off, we can start clean.
 
-Hope things are going well either way.
+Just reply here or grab a time at [scheduling link].
 
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
 
 ---
 
-## 5. Partnership / Referral Outreach — Physio / Sports Therapist / Nutritionist
+## 6. Referral / Partnership Outreach — Business Adjacent to Contractors
+*(e.g. building suppliers, trade associations, accountants who serve contractors)*
 
-**Subject:** Collaboration idea — CoachMack x [Their Business Name]
+**Subject:** Adding value for your contractor clients — worth a quick chat?
 
 Hi [First Name],
 
-I'm Coach Mack — a performance coach based in [location / working online worldwide] specialising in strength & conditioning and mental performance for athletes.
+I work with small business contractors across Massachusetts, helping them automate their inbound calls, scheduling, and lead follow-up using AI voice agents and workflow systems.
 
-I've been following your work at [their clinic/business] and I think we serve very complementary client bases. I often work with athletes who need physio or nutrition support beyond what I provide, and I imagine you see clients who'd benefit from a structured training programme.
+I imagine you work closely with contractors too — and if your clients are anything like mine, they're stretched thin and losing business simply because they can't get to every call or every follow-up.
 
-I'd love to explore a simple referral partnership — nothing formal or exclusive, just a mutual recommendation when it's genuinely in our clients' best interests.
+I'd love to explore a simple referral arrangement. When it makes sense for your clients, you send them my way — and I'll do the same when my clients need [their service]. Nothing formal, just a mutual introduction when it's genuinely useful.
 
-Would you be open to a 20-minute call to see if it makes sense? Happy to work around your schedule.
+Would a quick call this week work? Happy to show you the system first so you can see exactly what your clients would be getting.
 
-Best,
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
-
----
-
-## 6. Post-Programme Check-In / Testimonial Request
-
-**Subject:** How are things going since we wrapped up, [First Name]?
-
-Hi [First Name],
-
-It's been [X weeks/months] since we finished your programme and I just wanted to check in — how are you getting on?
-
-I hope the work we did together is still showing up in your training and competitions. You put in serious effort and I'd love to hear how it's translating.
-
-If you've had time to reflect, I'd really appreciate a short testimonial — just a few sentences about your experience. It helps other athletes make the decision to invest in themselves, and honest feedback is the best kind.
-
-You can send it by email or I can share a quick Google form — whatever's easier.
-
-And if you ever want to pick things back up or tackle a new goal, my door is always open.
-
-Take care,
-Coach Mack
-📧 hello@coachmack.com | 📞 +1 (000) 000-0000
+[Your Name]
+[Your Business Name]
+📧 [your email] | 📞 [your phone]
 
 ---
 
-*Tips for using these templates:*
-- *Personalise every email — generic outreach is easy to ignore*
-- *Keep subject lines short and specific to the recipient*
-- *Send follow-ups 3–5 days after no response (one follow-up is standard)*
-- *Track opens/clicks with a tool like Mailchimp, HubSpot, or Streak (Gmail)*
+## 7. Cold LinkedIn / SMS Outreach (Short Version)
+
+**Subject / Opening line:** Quick question for [First Name]
+
+Hi [First Name] — I help contractors in Massachusetts stop losing jobs to missed calls using an AI voice agent that answers 24/7, qualifies leads, and books appointments automatically.
+
+Takes about a week to set up and runs on autopilot. Worth a 15-min demo?
+
+[Your Name] — [Your Business Name]
+
+---
+
+*Tips for outreach to Massachusetts contractors:*
+- *Best send times: Tuesday–Thursday, 6:30–8am or 5–7pm (before/after job sites)*
+- *SMS and voicemail often outperform email for tradespeople — use in combination*
+- *Mention Massachusetts specifically — local credibility matters to small businesses*
+- *Lead with the pain (missed calls, lost jobs) before mentioning AI — the word can cause hesitation*
+- *One follow-up email 4–5 days after no response is standard and expected*
