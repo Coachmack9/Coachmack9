@@ -1,22 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none" role="img" aria-label="ProBot Solutions">
-  <!-- Robot head icon -->
-  <rect x="2" y="10" width="44" height="34" rx="7" fill="#0EA5E9"/>
-  <!-- Eyes -->
-  <rect x="8"  y="18" width="12" height="10" rx="3" fill="white"/>
-  <rect x="26" y="18" width="12" height="10" rx="3" fill="white"/>
-  <!-- Pupils -->
-  <circle cx="14" cy="23" r="3.5" fill="#0284C7"/>
-  <circle cx="32" cy="23" r="3.5" fill="#0284C7"/>
-  <!-- Mouth -->
-  <rect x="12" y="33" width="24" height="4" rx="2" fill="white" opacity="0.6"/>
-  <!-- Antenna -->
-  <line x1="24" y1="10" x2="24" y2="3" stroke="#0EA5E9" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="24" cy="2" r="3" fill="#0EA5E9"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" fill="none" role="img" aria-label="ProBot Solutions">
+  <!-- "ProBot" text -->
+  <text x="0" y="34" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#0EA5E9" letter-spacing="-0.5">ProB</text>
+  <text x="74" y="34" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#0284C7">Ot</text>
 
-  <!-- "ProBOt" text -->
-  <text x="58" y="32" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="24" fill="#0EA5E9" letter-spacing="-0.3">ProB</text>
-  <text x="115" y="32" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="24" fill="#0284C7">Ot</text>
-
-  <!-- "Solutions" text -->
-  <text x="58" y="52" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="14" fill="#0EA5E9" letter-spacing="2.5">SOLUTIONS</text>
+  <!-- "Solutions" subtext -->
+  <text x="2" y="50" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#0EA5E9" letter-spacing="3">SOLUTIONS</text>
 </svg>
