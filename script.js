@@ -169,11 +169,11 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
         setTimeout(() => formSuccess.classList.remove('visible'), 5000);
       })
       .catch(() => {
-        formSuccess.textContent = '⚠️ Something went wrong. Please email rob@probotsolutions.com directly.';
+        formSuccess.textContent = 'Something went wrong. Please email rob@probotsolutions.com directly.';
         formSuccess.classList.add('visible');
         setTimeout(() => {
           formSuccess.classList.remove('visible');
-          formSuccess.textContent = '✅ Thanks! Rob will be in touch within 24 hours.';
+          formSuccess.textContent = 'Message sent — Rob will be in touch within 24 hours.';
         }, 6000);
       })
       .finally(() => {
