@@ -2,6 +2,12 @@
    CoachMack — Landing Page Interactions
    ============================================= */
 
+/* ---- GoHighLevel Webhook ----
+   Replace this URL with your GHL workflow webhook.
+   In GHL: Automations → Create Workflow → Trigger: Webhook → copy the URL.
+   ---------------------------------------------------------------- */
+const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
+
 (() => {
   'use strict';
 
@@ -139,19 +145,41 @@
 
     if (!valid) return;
 
-    // Simulate form submission
     const submitBtn = form.querySelector('[type="submit"]');
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      form.reset();
-      submitBtn.textContent = 'Send Message';
-      submitBtn.disabled = false;
-      formSuccess.classList.add('visible');
+    const payload = {
+      name: name,
+      email: email,
+      service: document.getElementById('service').value,
+      message: document.getElementById('message').value.trim(),
+      source: 'ProBot Solutions Contact Form',
+    };
 
-      setTimeout(() => formSuccess.classList.remove('visible'), 5000);
-    }, 1200);
+    fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Network response was not ok');
+        form.reset();
+        formSuccess.classList.add('visible');
+        setTimeout(() => formSuccess.classList.remove('visible'), 5000);
+      })
+      .catch(() => {
+        formSuccess.textContent = '⚠️ Something went wrong. Please email rob@probotsolutions.com directly.';
+        formSuccess.classList.add('visible');
+        setTimeout(() => {
+          formSuccess.classList.remove('visible');
+          formSuccess.textContent = '✅ Thanks! Rob will be in touch within 24 hours.';
+        }, 6000);
+      })
+      .finally(() => {
+        submitBtn.textContent = 'Send Message';
+        submitBtn.disabled = false;
+      });
   });
 
   // Clear errors on input
