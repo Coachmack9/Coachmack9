@@ -1,8 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" fill="none" role="img" aria-label="ProBot Solutions">
-  <!-- "ProBot" text -->
-  <text x="0" y="34" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#0EA5E9" letter-spacing="-0.5">ProB</text>
-  <text x="74" y="34" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="800" font-size="28" fill="#0284C7">Ot</text>
-
-  <!-- "Solutions" subtext -->
-  <text x="2" y="50" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#0EA5E9" letter-spacing="3">SOLUTIONS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 40" fill="none" role="img" aria-label="ProBOt Solutions">
+  <text font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" y="28">
+    <tspan font-weight="800" fill="#0EA5E9">ProB</tspan><tspan font-weight="800" fill="#0284C7">Ot</tspan><tspan font-weight="400" fill="#0EA5E9"> Solutions</tspan>
+  </text>
 </svg>
