@@ -1,0 +1,12 @@
+{
+  "name": "coachmack9",
+  "version": "1.0.0",
+  "description": "ProBot Solutions – AI Voice Agents & AI Systems website",
+  "private": true,
+  "scripts": {
+    "lint:html": "htmlhint index.html playbook.html"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4"
+  }
+}
