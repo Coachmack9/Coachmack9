@@ -643,6 +643,32 @@ ${line}`;
     document.body.style.overflow = '';
   }
 
+  /* ── Download as PDF ─────────────────────────── */
+  function handleDownloadPdf() {
+    if (!activeIndustry) return;
+    const text  = buildScriptText(activeIndustry);
+    const title = `${activeIndustry.name} — AI Receptionist Script`;
+
+    const win = window.open('', '_blank');
+    if (!win) return; // popup blocked
+
+    win.document.write(`<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<title>${escHtml(title)}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, 'Helvetica Neue', sans-serif; max-width: 720px; margin: 48px auto; padding: 0 24px; color: #0c1a2e; font-size: 12px; line-height: 1.75; }
+  pre { white-space: pre-wrap; word-break: break-word; font-family: inherit; }
+  @page { margin: 20mm; }
+  @media print { body { margin: 0; } }
+</style>
+</head><body>
+<pre>${escHtml(text)}</pre>
+<script>window.print(); window.onafterprint = () => window.close();<\/script>
+</body></html>`);
+    win.document.close();
+  }
+
   /* ── Copy to Clipboard ───────────────────────── */
   async function handleCopy() {
     if (!activeIndustry) return;
@@ -707,10 +733,24 @@ ${line}`;
       });
     }
 
-    /* Variable inputs — live update */
+    /* Restore saved variables from localStorage */
+    const STORAGE_KEY = 'pb_vars';
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      Object.keys(vars).forEach(key => {
+        if (saved[key]) {
+          vars[key] = saved[key];
+          const input = document.querySelector(`[data-var="${key}"]`);
+          if (input) input.value = saved[key];
+        }
+      });
+    } catch { /* ignore parse errors */ }
+
+    /* Variable inputs — live update + persist */
     document.querySelectorAll('[data-var]').forEach(input => {
       input.addEventListener('input', () => {
         vars[input.dataset.var] = input.value.trim();
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(vars)); } catch { /* ignore */ }
         refreshModal();
       });
     });
@@ -727,6 +767,9 @@ ${line}`;
 
     /* Copy button */
     document.getElementById('copyBtn').addEventListener('click', handleCopy);
+
+    /* PDF download button */
+    document.getElementById('pdfBtn').addEventListener('click', handleDownloadPdf);
 
     /* ESC to close */
     document.addEventListener('keydown', e => {

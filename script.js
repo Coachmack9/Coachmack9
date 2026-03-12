@@ -92,6 +92,9 @@
   document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   /* ---------- Contact form ---------- */
+  // Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
   const form = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
@@ -111,7 +114,7 @@
 
   const validateEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     let valid = true;
 
@@ -139,19 +142,37 @@
 
     if (!valid) return;
 
-    // Simulate form submission
     const submitBtn = form.querySelector('[type="submit"]');
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      form.reset();
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          service: document.getElementById('service').value,
+          message: document.getElementById('message').value.trim()
+        })
+      });
+
+      if (res.ok) {
+        form.reset();
+        formSuccess.classList.add('visible');
+        setTimeout(() => formSuccess.classList.remove('visible'), 5000);
+      } else {
+        const data = await res.json();
+        const msg = data.errors ? data.errors.map(err => err.message).join(', ') : 'Submission failed. Please try again.';
+        showError('email', 'emailError', msg);
+      }
+    } catch {
+      showError('email', 'emailError', 'Network error. Please try again.');
+    } finally {
       submitBtn.textContent = 'Send Message';
       submitBtn.disabled = false;
-      formSuccess.classList.add('visible');
-
-      setTimeout(() => formSuccess.classList.remove('visible'), 5000);
-    }, 1200);
+    }
   });
 
   // Clear errors on input
