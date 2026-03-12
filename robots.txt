@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://coachmack9.github.io/Coachmack9/sitemap.xml
