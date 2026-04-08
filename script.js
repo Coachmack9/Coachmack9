@@ -187,6 +187,144 @@
     });
   });
 
+  /* ──────────── Voice Demo Player ──────────── */
+  const demoPlayBtn  = document.getElementById('demoPlayBtn');
+  const demoResetBtn = document.getElementById('demoResetBtn');
+  const demoChat     = document.getElementById('demoChat');
+  const demoTimer    = document.getElementById('demoTimer');
+  const demoDot      = document.getElementById('demoDot');
+  const demoStart    = document.getElementById('demoStartScreen');
+
+  const DEMO_SCRIPT = [
+    { role: 'ai',     text: 'Thank you for calling Action Plumbing — this is Max, your AI receptionist. How can I help you today?', delay: 800 },
+    { role: 'caller', text: 'Hey, my kitchen sink is completely backed up. Water is going everywhere.', delay: 2800 },
+    { role: 'ai',     text: "I'm sorry to hear that — we can get a plumber out to you today. May I get your name?", delay: 2400 },
+    { role: 'caller', text: 'John Martinez.', delay: 2000 },
+    { role: 'ai',     text: 'Hi John! What address should I send the technician to?', delay: 1800 },
+    { role: 'caller', text: '47 Oak Street, Framingham.', delay: 2000 },
+    { role: 'ai',     text: 'Got it. We have a 2 PM opening today — does that work for you?', delay: 2200 },
+    { role: 'caller', text: 'Yes, 2 PM is perfect.', delay: 1800 },
+    { role: 'ai',     text: "You're all set, John! A plumber will be at 47 Oak Street at 2 PM. You'll get a text confirmation shortly.", delay: 2600 },
+    { role: 'caller', text: "That's great. Thank you so much!", delay: 2000 },
+    { role: 'ai',     text: "Have a great day, John! We'll see you at 2!", delay: 1600 },
+  ];
+
+  let demoRunning = false;
+  let demoInterval = null;
+  let demoSeconds = 0;
+
+  function demoTick() {
+    demoSeconds++;
+    const m = Math.floor(demoSeconds / 60);
+    const s = String(demoSeconds % 60).padStart(2, '0');
+    if (demoTimer) demoTimer.textContent = `${m}:${s}`;
+  }
+
+  function makeDemoMsg(role, text) {
+    const wrap = document.createElement('div');
+    wrap.className = `demo-msg demo-msg--${role}`;
+
+    const av = document.createElement('div');
+    av.className = 'demo-msg__avatar';
+    av.textContent = role === 'ai' ? 'AI' : 'YOU';
+
+    const bub = document.createElement('div');
+    bub.className = 'demo-msg__bubble';
+    bub.textContent = text;
+
+    wrap.appendChild(av);
+    wrap.appendChild(bub);
+    return wrap;
+  }
+
+  function makeTypingIndicator(role) {
+    const wrap = document.createElement('div');
+    wrap.className = `demo-msg demo-msg--${role} demo-typing`;
+
+    const av = document.createElement('div');
+    av.className = 'demo-msg__avatar';
+    av.textContent = role === 'ai' ? 'AI' : 'YOU';
+
+    const bub = document.createElement('div');
+    bub.className = 'demo-msg__bubble';
+    for (let i = 0; i < 3; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'typing-dot';
+      bub.appendChild(dot);
+    }
+
+    wrap.appendChild(av);
+    wrap.appendChild(bub);
+    return wrap;
+  }
+
+  async function runDemo() {
+    if (demoRunning || !demoPlayBtn) return;
+    demoRunning = true;
+
+    // Clear start screen, prep chat
+    if (demoStart) demoStart.style.display = 'none';
+    if (demoResetBtn) demoResetBtn.style.display = 'flex';
+    if (demoDot) demoDot.classList.add('active');
+
+    demoSeconds = 0;
+    demoInterval = setInterval(demoTick, 1000);
+
+    for (const line of DEMO_SCRIPT) {
+      // Show typing indicator
+      const typing = makeTypingIndicator(line.role);
+      demoChat.appendChild(typing);
+      demoChat.scrollTop = demoChat.scrollHeight;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => typing.classList.add('visible'));
+      });
+
+      await new Promise(r => setTimeout(r, line.delay));
+
+      // Replace typing with message
+      typing.remove();
+      const msg = makeDemoMsg(line.role, line.text);
+      demoChat.appendChild(msg);
+      demoChat.scrollTop = demoChat.scrollHeight;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => msg.classList.add('visible'));
+      });
+
+      await new Promise(r => setTimeout(r, 400));
+    }
+
+    clearInterval(demoInterval);
+    if (demoDot) demoDot.classList.remove('active');
+
+    // Show "call ended" message
+    const ended = document.createElement('div');
+    ended.style.cssText = 'text-align:center;font-size:0.8rem;color:rgba(255,255,255,.35);padding:12px 0;';
+    ended.textContent = '— Call ended · Appointment booked ✅ —';
+    demoChat.appendChild(ended);
+    demoChat.scrollTop = demoChat.scrollHeight;
+  }
+
+  function resetDemo() {
+    demoRunning = false;
+    clearInterval(demoInterval);
+    demoSeconds = 0;
+    if (demoTimer) demoTimer.textContent = '0:00';
+    if (demoDot) demoDot.classList.remove('active');
+    if (demoResetBtn) demoResetBtn.style.display = 'none';
+    if (demoChat) {
+      demoChat.innerHTML = '';
+      if (demoStart) {
+        demoStart.style.display = 'flex';
+        demoChat.appendChild(demoStart);
+      }
+    }
+  }
+
+  if (demoPlayBtn) demoPlayBtn.addEventListener('click', runDemo);
+  if (demoResetBtn) demoResetBtn.addEventListener('click', resetDemo);
+
   /* ---------- Smooth active nav highlight ---------- */
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.navbar__links a');
