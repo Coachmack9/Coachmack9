@@ -3,138 +3,271 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ProBot Solutions — AI Voice Agents & AI Systems</title>
-  <meta name="description" content="ProBot Solutions builds custom AI voice agents and automated systems that answer calls, book appointments, qualify leads, and follow up — 24/7. Serving home service businesses nationwide." />
+  <title>ProBot Solutions — AI Voice Agents for Home Service Businesses</title>
+  <meta name="description" content="ProBot Solutions builds AI voice agents that answer every call, book appointments, and qualify leads 24/7 — starting at $97/month. Live in 72 hours. Serving home service businesses nationwide." />
   <meta name="robots" content="index, follow" />
   <meta name="msvalidate.01" content="16B870FF6B74C9F4B6264A65284781CC" />
   <link rel="canonical" href="https://coachmack9.github.io/Coachmack9/" />
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://coachmack9.github.io/Coachmack9/" />
-  <meta property="og:title" content="ProBot Solutions — AI Voice Agents & AI Systems" />
-  <meta property="og:description" content="Custom AI voice agents that answer calls, book appointments, and qualify leads 24/7. Never miss a customer again." />
+  <meta property="og:title" content="ProBot Solutions — AI Voice Agents for Home Service Businesses" />
+  <meta property="og:description" content="AI voice agents that answer every call, book appointments, and qualify leads 24/7. Never miss a customer again." />
   <meta property="og:site_name" content="ProBot Solutions" />
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ProBot Solutions — AI Voice Agents & AI Systems" />
-  <meta name="twitter:description" content="Custom AI voice agents that answer calls, book appointments, and qualify leads 24/7. Never miss a customer again." />
+  <meta name="twitter:title" content="ProBot Solutions — AI Voice Agents for Home Service Businesses" />
+  <meta name="twitter:description" content="AI voice agents that answer every call, book appointments, and qualify leads 24/7." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ProBot Solutions",
+    "url": "https://coachmack9.github.io/Coachmack9/",
+    "description": "AI voice agents and automated systems for home service businesses.",
+    "email": "rob@probotsolutions.com",
+    "telephone": "+17813073117",
+    "areaServed": "US",
+    "founder": { "@type": "Person", "name": "Rob" },
+    "sameAs": []
+  }
+  </script>
 </head>
 <body>
 
-  <!-- ============ NAVBAR ============ -->
+  <!-- ════ NAVBAR ════ -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
-      <a href="#" class="navbar__logo" aria-label="ProBot Solutions">
+      <a href="#" class="navbar__logo" aria-label="ProBot Solutions home">
         <img src="logo.svg" alt="ProBot Solutions" class="navbar__logo-img" />
       </a>
-      <nav class="navbar__links" id="navLinks">
+      <nav class="navbar__links" id="navLinks" aria-label="Main navigation">
         <a href="#services">Services</a>
+        <a href="#demo">Hear the AI</a>
         <a href="ai-receptionist-contractors.html">For Contractors</a>
         <a href="#about">About</a>
-        <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="btn btn--primary navbar__cta">Get Started</a>
-      <button class="navbar__burger" id="burger" aria-label="Toggle menu">
+      <a href="#contact" class="btn btn--primary navbar__cta">Book Free Demo</a>
+      <button class="navbar__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- ============ HERO ============ -->
+  <!-- ════ HERO ════ -->
   <section class="hero" id="home">
-    <div class="hero__bg"></div>
-    <div class="container hero__content">
-      <span class="badge">AI Voice Agents &amp; AI Systems</span>
-      <h1 class="hero__title">Let AI Work Your Phones <span class="highlight">24/7</span></h1>
-      <p class="hero__subtitle">
-        Custom AI voice agents and automated systems that answer calls, book appointments,
-        qualify leads, and follow up — so you never miss a customer again.
-      </p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary btn--lg">Book a Free Demo</a>
-        <a href="#services" class="btn btn--ghost btn--lg">Explore Services</a>
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <span class="eyebrow">AI Voice Agents · Home Service Businesses</span>
+        <h1>Your Phone Answered.<br><span class="highlight">Every Call. 24/7.</span></h1>
+        <p class="hero__sub">
+          ProBot's AI receptionists answer in under 2 seconds, book appointments automatically,
+          and qualify leads while you're on the job — starting at $97/month, live in 72 hours.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary btn--lg">Book a Free Demo</a>
+          <a href="#demo" class="btn btn--outline btn--lg">▶ Hear the AI</a>
+        </div>
+        <div class="hero__trust">
+          <div class="trust-stat">
+            <strong><span class="stat__number" data-target="200">0</span>+</strong>
+            <span>Businesses automated</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat">
+            <strong>&lt;2s</strong>
+            <span>Answer time</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat">
+            <strong>24/7</strong>
+            <span>Always on</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-stat">
+            <strong>72 hrs</strong>
+            <span>To go live</span>
+          </div>
+        </div>
       </div>
-      <div class="hero__stats">
-        <div class="stat">
-          <span class="stat__number" data-target="200">0</span><span>+</span>
-          <p>Businesses Automated</p>
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero-card">
+          <div class="hero-card__header">
+            <div class="hc-dot hc-dot--green"></div>
+            <span>ProBot AI — Live Call</span>
+            <div class="hc-timer">0:18</div>
+          </div>
+          <div class="hero-card__chat">
+            <div class="hc-msg hc-msg--ai">
+              <div class="hc-avatar">AI</div>
+              <div class="hc-bubble">Thanks for calling Boston HVAC Pros! How can I help?</div>
+            </div>
+            <div class="hc-msg hc-msg--caller">
+              <div class="hc-bubble">My AC stopped working — it's 90° in here!</div>
+            </div>
+            <div class="hc-msg hc-msg--ai">
+              <div class="hc-avatar">AI</div>
+              <div class="hc-bubble">We can have someone out today. What's your address?</div>
+            </div>
+            <div class="hc-msg hc-msg--caller">
+              <div class="hc-bubble">14 Maple Street, Newton.</div>
+            </div>
+            <div class="hc-msg hc-msg--ai hc-msg--typing">
+              <div class="hc-avatar">AI</div>
+              <div class="hc-bubble">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-card__footer">
+            <span class="hc-status">📅 Booking appointment…</span>
+          </div>
         </div>
-        <div class="stat">
-          <span class="stat__number" data-target="50">0</span><span>k+</span>
-          <p>Calls Handled by AI</p>
+        <div class="hero-badge hero-badge--1">
+          <span class="hb-icon">✅</span>
+          <div><strong>Appointment booked</strong><small>2:00 PM today</small></div>
         </div>
-        <div class="stat">
-          <span class="stat__number" data-target="98">0</span><span>%</span>
-          <p>Client Satisfaction</p>
+        <div class="hero-badge hero-badge--2">
+          <span class="hb-icon">📱</span>
+          <div><strong>SMS sent to client</strong><small>just now</small></div>
         </div>
       </div>
-    </div>
-    <div class="hero__scroll-hint">
-      <span>Scroll down</span>
-      <div class="scroll-arrow"></div>
     </div>
   </section>
 
-  <!-- ============ SERVICES ============ -->
+  <!-- ════ VOICE DEMO ════ -->
+  <section class="demo-section section" id="demo">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow eyebrow--light">Live Demo</span>
+        <h2>Hear ProBot <span class="highlight">Answer a Real Call</span></h2>
+        <p>Click play to hear a 30-second inbound call — from first ring to booked appointment.</p>
+      </div>
+      <div class="demo-player reveal">
+        <div class="demo-player__header">
+          <div class="demo-caller-info">
+            <div class="demo-dot" id="demoDot"></div>
+            <div>
+              <strong>Inbound Call — Action Plumbing</strong>
+              <small>AI Receptionist Active</small>
+            </div>
+          </div>
+          <div class="demo-timer" id="demoTimer">0:00</div>
+        </div>
+        <div class="demo-player__chat" id="demoChat">
+          <div class="demo-start-screen" id="demoStartScreen">
+            <div class="demo-phone-icon">📞</div>
+            <p>Interactive call simulation</p>
+            <button class="btn btn--primary btn--lg" id="demoPlayBtn">▶ Play Demo Call</button>
+          </div>
+        </div>
+        <div class="demo-player__footer">
+          <div class="demo-labels">
+            <span class="demo-label demo-label--ai">ProBot AI</span>
+            <span class="demo-label demo-label--caller">Caller</span>
+          </div>
+          <button class="demo-reset" id="demoResetBtn" style="display:none" aria-label="Replay demo">↺ Replay</button>
+        </div>
+      </div>
+      <div class="demo-cta reveal">
+        <p>Want your business to sound like this?</p>
+        <a href="#contact" class="btn btn--primary">Get Your AI Receptionist →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ HOW IT WORKS ════ -->
+  <section class="how-section section" id="how">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="eyebrow">Simple Setup</span>
+        <h2>Live in <span class="highlight">72 Hours</span></h2>
+        <p>No technical knowledge needed. We handle everything.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card reveal" data-delay="0">
+          <div class="step-num">01</div>
+          <h3>We Learn Your Business</h3>
+          <p>You fill out a short intake form. We build a custom AI script tailored to your services, hours, and tone.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-card reveal" data-delay="100">
+          <div class="step-num">02</div>
+          <h3>AI Goes Live</h3>
+          <p>We forward your business line to ProBot. Within 72 hours, every call is answered instantly — 24/7.</p>
+        </div>
+        <div class="step-connector" aria-hidden="true"></div>
+        <div class="step-card reveal" data-delay="200">
+          <div class="step-num">03</div>
+          <h3>You Get Booked Jobs</h3>
+          <p>Appointments land on your calendar automatically. You get a daily summary of every call, lead, and booking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ SERVICES ════ -->
   <section class="services section" id="services">
     <div class="container">
-      <div class="section-header">
-        <span class="badge">What We Build</span>
+      <div class="section-header reveal">
+        <span class="eyebrow">What We Build</span>
         <h2>AI Systems Built for <span class="highlight">Your Business</span></h2>
         <p>Every solution is tailored to your industry, workflows, and customer journey.</p>
       </div>
       <div class="services__grid">
-        <div class="card service-card" data-delay="0">
+        <div class="service-card card reveal" data-delay="0">
           <div class="service-card__icon">🤖</div>
           <h3>AI Voice Receptionist</h3>
-          <p>A human-sounding AI agent answers every call instantly — 24/7, no hold times, no missed leads.</p>
+          <p>Answers every call in under 2 seconds — 24/7, no hold times, no missed leads.</p>
           <a href="ai-receptionist-contractors.html" class="link-arrow">Learn more →</a>
         </div>
-        <div class="card service-card" data-delay="100">
+        <div class="service-card card reveal" data-delay="80">
           <div class="service-card__icon">📅</div>
           <h3>AI Appointment Setter</h3>
-          <p>Automatically books and confirms appointments via phone or SMS, syncing directly to your calendar.</p>
+          <p>Automatically books and confirms appointments via phone or SMS, syncing to your calendar.</p>
           <a href="#contact" class="link-arrow">Learn more →</a>
         </div>
-        <div class="card service-card" data-delay="200">
+        <div class="service-card card reveal" data-delay="160">
           <div class="service-card__icon">🎯</div>
           <h3>AI Lead Qualifier</h3>
-          <p>Engages inbound leads the moment they call or submit a form, qualifies them, and routes hot prospects to your team.</p>
+          <p>Engages inbound leads instantly, qualifies them, and routes hot prospects to your team.</p>
           <a href="#contact" class="link-arrow">Learn more →</a>
         </div>
-        <div class="card service-card" data-delay="300">
+        <div class="service-card card reveal" data-delay="240">
           <div class="service-card__icon">💬</div>
           <h3>AI Customer Support</h3>
-          <p>Handles FAQs, status updates, and common service requests without any human intervention.</p>
+          <p>Handles FAQs, status updates, and common requests without human intervention.</p>
           <a href="#contact" class="link-arrow">Learn more →</a>
         </div>
-        <div class="card service-card" data-delay="400">
+        <div class="service-card card reveal" data-delay="320">
           <div class="service-card__icon">📞</div>
           <h3>AI Outbound Sales Agent</h3>
-          <p>Makes outbound calls to follow up on quotes, reactivate old customers, and confirm appointments at scale.</p>
+          <p>Follows up on quotes, reactivates old customers, and confirms appointments at scale.</p>
           <a href="#contact" class="link-arrow">Learn more →</a>
         </div>
-        <div class="card service-card" data-delay="500">
+        <div class="service-card card reveal" data-delay="400">
           <div class="service-card__icon">⚙️</div>
           <h3>Custom AI Automation</h3>
-          <p>End-to-end workflow automation — CRM updates, SMS follow-ups, reporting, and more. Built to fit your stack.</p>
+          <p>End-to-end workflow automation — CRM updates, SMS follow-ups, reporting. Built for your stack.</p>
           <a href="#contact" class="link-arrow">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ AI RECEPTIONIST PLAYBOOK BANNER ============ -->
+  <!-- ════ PLAYBOOK BANNER ════ -->
   <section class="playbook-banner">
     <div class="container playbook-banner__inner">
       <div class="playbook-banner__text">
-        <span class="playbook-banner__eyebrow">Free Resource</span>
+        <span class="eyebrow eyebrow--light">Free Resource</span>
         <h2 class="playbook-banner__title">AI Receptionist Playbook</h2>
         <p class="playbook-banner__sub">
           25 plug-and-play conversation scripts for home service businesses.
@@ -153,22 +286,18 @@
             <div class="pbs"><strong>8</strong><span>Steps</span></div>
             <div class="pbs"><strong>6</strong><span>Variables</span></div>
           </div>
-          <a href="playbook.html" class="btn btn--primary btn--full btn--lg">
-            Open the Playbook →
-          </a>
+          <a href="playbook.html" class="btn btn--primary btn--full btn--lg">Open the Playbook →</a>
           <p class="playbook-banner__note">Free · No sign-up required</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
+  <!-- ════ ABOUT ════ -->
   <section class="about section" id="about">
     <div class="container about__inner">
-      <div class="about__image-wrap">
-        <div class="about__image-placeholder">
-          <span>PBS</span>
-        </div>
+      <div class="about__image-wrap reveal">
+        <div class="about__image-placeholder"><span>PBS</span></div>
         <div class="about__badge-float">
           <span>🤖</span>
           <div>
@@ -177,8 +306,8 @@
           </div>
         </div>
       </div>
-      <div class="about__content">
-        <span class="badge">About Us</span>
+      <div class="about__content reveal">
+        <span class="eyebrow">About Us</span>
         <h2>Hi, I'm <span class="highlight">Rob</span></h2>
         <p>
           At ProBot Solutions, we help small and mid-size businesses deploy AI voice agents
@@ -186,14 +315,13 @@
           and following up with leads while you focus on delivering great service.
         </p>
         <p>
-          We combine cutting-edge AI technology with deep knowledge of how real businesses
-          operate. Every system we build is practical, fast to deploy, and designed to generate
+          Every system we build is practical, fast to deploy, and designed to generate
           measurable ROI from day one.
         </p>
         <ul class="about__list">
           <li><span class="check">✓</span> AI voice agents deployed across 20+ industries</li>
           <li><span class="check">✓</span> Full-stack automation: calls, SMS, CRM, scheduling</li>
-          <li><span class="check">✓</span> Rapid deployment — live in as little as 5 business days</li>
+          <li><span class="check">✓</span> Rapid deployment — live in as little as 72 hours</li>
           <li><span class="check">✓</span> Ongoing support, monitoring, and optimisation included</li>
         </ul>
         <a href="#contact" class="btn btn--primary">Work With Us</a>
@@ -201,17 +329,17 @@
     </div>
   </section>
 
-  <!-- ============ TESTIMONIALS ============ -->
+  <!-- ════ TESTIMONIALS ════ -->
   <section class="testimonials section" id="testimonials">
     <div class="container">
-      <div class="section-header">
-        <span class="badge">Success Stories</span>
+      <div class="section-header reveal">
+        <span class="eyebrow">Results</span>
         <h2>What Our Clients <span class="highlight">Say</span></h2>
       </div>
-      <div class="testimonials__track" id="testimonialTrack">
-        <div class="testimonial-card card">
+      <div class="testimonials__grid">
+        <div class="testimonial-card card reveal" data-delay="0">
           <div class="stars">★★★★★</div>
-          <p>"Our AI receptionist answered over 300 calls in the first month — we didn't miss a single lead. Revenue from new bookings alone covered the cost in week two."</p>
+          <p>"Our AI receptionist answered over 300 calls in the first month — we didn't miss a single lead. Revenue from new bookings covered the cost in week two."</p>
           <div class="testimonial-card__author">
             <div class="avatar">DM</div>
             <div>
@@ -220,9 +348,9 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card card">
+        <div class="testimonial-card card reveal" data-delay="100">
           <div class="stars">★★★★★</div>
-          <p>"Before ProBot Solutions we were losing leads every night and weekend. Now the AI books appointments 24/7 and our calendar is always full. Game changer."</p>
+          <p>"Before ProBot we were losing leads every night and weekend. Now the AI books appointments 24/7 and our calendar is always full. Game changer."</p>
           <div class="testimonial-card__author">
             <div class="avatar">TL</div>
             <div>
@@ -231,9 +359,9 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card card">
+        <div class="testimonial-card card reveal" data-delay="200">
           <div class="stars">★★★★★</div>
-          <p>"The outbound AI follow-up agent reactivated 40 old customers in the first two weeks. I would never have had time to make those calls myself. Incredible ROI."</p>
+          <p>"The outbound AI follow-up agent reactivated 40 old customers in two weeks. I would never have had time to make those calls myself. Incredible ROI."</p>
           <div class="testimonial-card__author">
             <div class="avatar">MR</div>
             <div>
@@ -242,9 +370,9 @@
             </div>
           </div>
         </div>
-        <div class="testimonial-card card">
+        <div class="testimonial-card card reveal" data-delay="300">
           <div class="stars">★★★★★</div>
-          <p>"Rob built us a complete AI system — intake calls, CRM updates, SMS confirmations. What used to take my admin team hours now happens automatically."</p>
+          <p>"Rob built a complete AI system — intake calls, CRM updates, SMS confirmations. What used to take hours now happens automatically."</p>
           <div class="testimonial-card__author">
             <div class="avatar">SK</div>
             <div>
@@ -254,46 +382,60 @@
           </div>
         </div>
       </div>
-      <div class="testimonials__dots" id="testimonialDots"></div>
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
+  <!-- ════ CTA BAND ════ -->
+  <section class="cta-band">
+    <div class="container cta-band__inner reveal">
+      <div class="cta-band__text">
+        <h2>Ready to Stop Missing Calls?</h2>
+        <p>Join 200+ businesses that never let a lead go to voicemail again.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a href="#contact" class="btn btn--white btn--lg">Book Free Demo</a>
+        <a href="ai-receptionist-contractors.html" class="btn btn--outline-white btn--lg">For Contractors →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CONTACT ════ -->
   <section class="contact section" id="contact">
     <div class="container contact__inner">
-      <div class="contact__info">
-        <span class="badge">Get In Touch</span>
-        <h2>Ready to Automate Your <span class="highlight">Business?</span></h2>
-        <p>Book a free 30-minute demo and we'll show you exactly how AI can work for your business.</p>
+      <div class="contact__info reveal">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Book Your <span class="highlight">Free Demo</span></h2>
+        <p>A 30-minute call where we show you exactly how AI can work for your business — no pressure, no commitment.</p>
         <ul class="contact__details">
           <li>📧 <a href="mailto:rob@probotsolutions.com">rob@probotsolutions.com</a></li>
           <li>📞 <a href="tel:+17813073117">(781) 307-3117</a></li>
           <li>📍 Serving businesses nationwide — remote &amp; in-person</li>
         </ul>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram" class="social-link">IG</a>
-          <a href="#" aria-label="Twitter/X" class="social-link">X</a>
-          <a href="#" aria-label="YouTube" class="social-link">YT</a>
-          <a href="#" aria-label="LinkedIn" class="social-link">LI</a>
+        <div class="contact__links">
+          <a href="ai-receptionist-contractors.html" class="link-arrow">AI for Contractors →</a>
+          <a href="ai-voice-agent-hvac.html" class="link-arrow">AI for HVAC →</a>
+          <a href="replace-answering-service-with-ai.html" class="link-arrow">vs. Answering Service →</a>
         </div>
       </div>
-      <form class="contact__form card" id="contactForm" action="https://formsubmit.co/rob@probotsolutions.com" method="POST" novalidate>
+      <form class="contact__form card reveal" id="contactForm" action="https://formsubmit.co/rob@probotsolutions.com" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New ProBot Solutions inquiry" />
         <input type="hidden" name="_next" value="https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW" />
         <input type="hidden" name="_captcha" value="false" />
-        <h3>Book Your Free Demo</h3>
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Your full name" required />
-          <span class="form-error" id="nameError"></span>
+        <h3>Tell Us About Your Business</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <span class="form-error" id="emailError"></span>
+          </div>
         </div>
         <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
-          <span class="form-error" id="emailError"></span>
-        </div>
-        <div class="form-group">
-          <label for="service">Interested In</label>
+          <label for="service">What do you need?</label>
           <select id="service" name="service">
             <option value="">Select a service…</option>
             <option value="voice-receptionist">AI Voice Receptionist</option>
@@ -305,30 +447,30 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Tell Us About Your Business</label>
-          <textarea id="message" name="message" rows="4" placeholder="What do you want to automate?"></textarea>
+          <label for="message">Tell us about your business</label>
+          <textarea id="message" name="message" rows="3" placeholder="What do you want to automate? How many calls per day?"></textarea>
         </div>
-        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+        <button type="submit" class="btn btn--primary btn--full">Send Message →</button>
         <div class="form-success" id="formSuccess">
-          ✅ Thanks! Rob will be in touch within 24 hours.
+          ✅ Got it! Redirecting you to book your demo…
         </div>
       </form>
     </div>
   </section>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ════ FOOTER ════ -->
   <footer class="footer">
     <div class="container footer__inner">
       <a href="#" class="navbar__logo" aria-label="ProBot Solutions">
         <img src="logo.svg" alt="ProBot Solutions" class="navbar__logo-img navbar__logo-img--footer" />
       </a>
       <p class="footer__copy">&copy; 2026 ProBot Solutions. All rights reserved.</p>
-      <nav class="footer__nav">
+      <nav class="footer__nav" aria-label="Footer navigation">
         <a href="#services">Services</a>
         <a href="ai-receptionist-contractors.html">For Contractors</a>
         <a href="ai-voice-agent-hvac.html">For HVAC</a>
         <a href="replace-answering-service-with-ai.html">vs. Answering Service</a>
-        <a href="#about">About</a>
+        <a href="playbook.html">Playbook</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
