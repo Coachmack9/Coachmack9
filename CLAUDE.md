@@ -16,14 +16,22 @@ Guidelines for AI assistants working in this repository.
 
 ```
 /
-├── index.html       Landing page (hero, services, testimonials, contact)
-├── script.js        Landing page interactions (navbar, counters, scroll reveal, form)
-├── styles.css       Landing page styles
-├── playbook.html    AI Receptionist Playbook page
-├── playbook.js      Playbook logic — 25 industry scripts, modal, clipboard
-├── playbook.css     Playbook styles
-├── logo.svg         ProBot Solutions text wordmark (SVG)
-└── .nojekyll        GitHub Pages — disables Jekyll processing
+├── index.html                          Landing page (redesigned 2026-04-08)
+├── script.js                           Landing page interactions + voice demo player
+├── styles.css                          Landing page styles (clean/professional theme)
+├── playbook.html                       AI Receptionist Playbook page
+├── playbook.js                         Playbook logic — 25 industry scripts, modal, clipboard
+├── playbook.css                        Playbook styles
+├── ai-receptionist-contractors.html    Service page — AI for contractors (w/ FAQ schema)
+├── ai-voice-agent-hvac.html            Service page — AI for HVAC (w/ FAQ schema)
+├── replace-answering-service-with-ai.html  Comparison page — AI vs answering service
+├── service-page.css                    Shared styles for all 3 service pages
+├── sitemap.xml                         All 5 pages listed with lastmod dates
+├── robots.txt                          Crawler directives
+├── 404.html                            Custom 404 page
+├── logo.svg                            ProBot Solutions text wordmark (SVG)
+├── favicon.svg                         Favicon
+└── .nojekyll                           GitHub Pages — disables Jekyll processing
 ```
 
 No subdirectories, no node_modules, no build artifacts.
@@ -59,7 +67,19 @@ There is no automated test suite. Verify changes by:
 
 ### Deploying
 
-Push to the `master` branch. GitHub Pages publishes automatically from the repository root.
+**Important:** There is no `master` or `main` branch. GitHub Pages serves from the branch `claude/create-landing-page-Knwwo`. All feature work goes on `claude/setup-new-project-We1kS`, merged via PR into the base branch.
+
+- Feature branch: `claude/setup-new-project-We1kS`
+- Live branch: `claude/create-landing-page-Knwwo`
+- Do NOT push directly to the live branch — always create a PR and merge
+
+### Contact Form
+
+The contact form uses **formsubmit.co** (no account required):
+- Endpoint: `https://formsubmit.co/ajax/rob@probotsolutions.com`
+- On success: redirects to `https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW`
+- JS handles validation and submission via `fetch()` with `FormData`
+- The HTML form `action` attribute is a fallback only (JS always intercepts)
 
 ---
 
@@ -107,7 +127,8 @@ Handles all landing page interactivity:
 - **Animated counters:** `IntersectionObserver` triggers count-up animation when stat section enters viewport
 - **Scroll reveal:** `IntersectionObserver` adds `.visible` class to elements with `.reveal`; CSS handles the fade-in transition
 - **Active nav highlight:** Highlights the nav link matching the current visible section
-- **Contact form:** Client-side validation with inline error messages; no backend integration (submission is simulated)
+- **Contact form:** Client-side validation → submits via `fetch()` to formsubmit.co AJAX → redirects to booking calendar on success
+- **Voice demo player:** `DEMO_SCRIPT` array drives animated call transcript with typing indicators and a live timer. Play/Reset buttons wired to `runDemo()` / `resetDemo()`.
 
 ### `playbook.js`
 
@@ -199,6 +220,40 @@ When adding or modifying interactive elements:
 - **Primary color:** `#0EA5E9` (cyan-blue / sky-500 in Tailwind terms)
 - **Font:** Inter (loaded from Google Fonts)
 - **Tone:** Professional, concise, results-focused
+
+---
+
+## SEO & AI Citation Setup (as of 2026-04-08)
+
+| Signal | Status | Notes |
+|--------|--------|-------|
+| Bing Webmaster Tools | Verification tag live | `msvalidate.01` in `<head>` — verify at bing.com/webmasters |
+| Sitemap submitted | Ready to submit | `sitemap.xml` has all 5 pages |
+| Organization schema | Live | In `<head>` of `index.html` |
+| FAQPage schema | Live | On all 3 service pages |
+| Service schema | Live | On 2 service pages |
+| Google Search Console | Not yet set up | Next priority |
+| Google Business Profile | Not yet claimed | Next after Search Console |
+
+**Key contact/booking info:**
+- Email: `rob@probotsolutions.com`
+- Phone: `(781) 307-3117`
+- Booking calendar: `https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW`
+
+---
+
+## Landing Page Sections (redesign 2026-04-08)
+
+1. **Navbar** — white always-visible, no transparent-to-white transition
+2. **Hero** — two-column: text left, floating AI chat card right
+3. **Voice Demo** — dark navy section, animated call transcript player
+4. **How It Works** — 3-step process (step cards with connectors)
+5. **Services** — 6 cards, 3-column grid
+6. **Playbook Banner** — dark, links to playbook.html
+7. **About** — image placeholder + Rob's bio
+8. **Testimonials** — 4 cards, 2-column grid
+9. **CTA Band** — dark navy, "Book Free Demo" + "For Contractors"
+10. **Contact/Form** — light background, 2-column layout
 
 ---
 
