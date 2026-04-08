@@ -96,6 +96,20 @@ h2 {
 
 .eyebrow--light { color: #7dd3fc; }
 
+/* Badge — used on service pages */
+.badge {
+  display: inline-block;
+  background: var(--primary-light);
+  color: var(--primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-blue);
+}
+
 /* Card base */
 .card {
   background: var(--white);
@@ -164,12 +178,14 @@ h2 {
   transform: translateY(-2px);
 }
 
-.btn--outline-white {
+.btn--outline-white,
+.btn--ghost {
   background: transparent;
   color: var(--white);
   border-color: rgba(255,255,255,.5);
 }
-.btn--outline-white:hover {
+.btn--outline-white:hover,
+.btn--ghost:hover {
   background: rgba(255,255,255,.1);
   border-color: var(--white);
   transform: translateY(-2px);
