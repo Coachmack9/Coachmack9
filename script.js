@@ -66,9 +66,12 @@
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // Counter observer — triggers when hero stats section is visible
+  // Counter observer — triggers when trust stats section enters viewport
   const statNumbers = document.querySelectorAll('.stat__number');
   if (statNumbers.length) {
+    const triggerEl = statNumbers[0].closest('.hero__trust') ||
+                      statNumbers[0].closest('.hero__stats') ||
+                      statNumbers[0].parentElement;
     const counterObserver = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && !countersStarted) {
         countersStarted = true;
@@ -77,19 +80,9 @@
         });
         counterObserver.disconnect();
       }
-    }, { threshold: 0.5 });
-
-    counterObserver.observe(statNumbers[0].closest('.hero__stats'));
+    }, { threshold: 0.3 });
+    counterObserver.observe(triggerEl);
   }
-
-  /* ---------- Add reveal class to section elements ---------- */
-  document.querySelectorAll(
-    '.section-header, .about__image-wrap, .about__content, ' +
-    '.contact__info, .contact__form, .testimonial-card'
-  ).forEach(el => el.classList.add('reveal'));
-
-  // Re-observe newly classified elements
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   /* ---------- Contact form ---------- */
   // Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
@@ -324,6 +317,18 @@
 
   if (demoPlayBtn) demoPlayBtn.addEventListener('click', runDemo);
   if (demoResetBtn) demoResetBtn.addEventListener('click', resetDemo);
+
+  // "Hear the AI" buttons auto-scroll to demo AND start it
+  document.querySelectorAll('a[href="#demo"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const demoSection = document.getElementById('demo');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { if (!demoRunning) runDemo(); }, 800);
+      }
+    });
+  });
 
   /* ---------- Smooth active nav highlight ---------- */
   const sections = document.querySelectorAll('section[id]');
