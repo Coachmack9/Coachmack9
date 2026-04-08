@@ -93,7 +93,7 @@
 
   /* ---------- Contact form ---------- */
   // Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formsubmit.co/ajax/rob@probotsolutions.com';
 
   const form = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
@@ -147,21 +147,25 @@
     submitBtn.disabled = true;
 
     try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('service', document.getElementById('service').value);
+      formData.append('message', document.getElementById('message').value.trim());
+      formData.append('_subject', 'New ProBot Solutions inquiry');
+      formData.append('_captcha', 'false');
       const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          service: document.getElementById('service').value,
-          message: document.getElementById('message').value.trim()
-        })
+        headers: { 'Accept': 'application/json' },
+        body: formData
       });
 
       if (res.ok) {
         form.reset();
         formSuccess.classList.add('visible');
-        setTimeout(() => formSuccess.classList.remove('visible'), 5000);
+        setTimeout(() => {
+          window.location.href = 'https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW';
+        }, 1500);
       } else {
         const data = await res.json();
         const msg = data.errors ? data.errors.map(err => err.message).join(', ') : 'Submission failed. Please try again.';
