@@ -30,8 +30,10 @@ Guidelines for AI assistants working in this repository.
 ├── ai-receptionist-24-7-emergency.html     Service page — 24/7 emergency AI for all trades (added 2026-04-11)
 ├── replace-answering-service-with-ai.html  Comparison page — AI vs answering service
 ├── ai-answering-service-massachusetts.html Local SEO page — MA/New England geo targeting (added 2026-04-11)
+├── sell.html                               Digital product sales page — 25-Industry Playbook $97 (added 2026-04-12)
+├── agency.html                             Agency/reseller partner program page (added 2026-04-12)
 ├── service-page.css                        Shared styles for all service pages
-├── sitemap.xml                             All 9 pages listed with probotma.boston URLs
+├── sitemap.xml                             All 11 pages listed with probotma.boston URLs
 ├── robots.txt                              Crawler directives
 ├── 404.html                                Custom 404 page
 ├── CNAME                                   Custom domain: probotma.boston
@@ -182,6 +184,25 @@ Local SEO page for Massachusetts (added 2026-04-11):
 - Nor'easter / winter storm content for MA seasonal search intent
 - Priority 0.95 in sitemap (highest after homepage)
 
+### `sell.html`
+
+Digital product sales page (added 2026-04-12):
+- Standalone page — uses its own inline `<style>` block (does NOT use service-page.css)
+- **Buy CTA:** Points to `https://probotmaestro.gumroad.com/l/omofdf` — update this URL if Gumroad product link changes
+- **Pricing displayed:** $97 one-time (crossed-out $197 "was" price)
+- **Sections:** hero → stats strip → what's inside (6 cards) → HVAC prompt preview → 25-industry grid → 3 persona cards → platform compatibility → guarantee → FAQ accordion → CTA band
+- No geo meta tags (not a local SEO page — intentionally broad/national audience)
+- Has `Product` JSON-LD schema with `offers` price $97
+
+### `agency.html`
+
+Agency partner program page (added 2026-04-12):
+- Uses `styles.css` + `service-page.css` + inline `<style>` for agency-specific components
+- **3 partner tiers:** Referral (20% monthly commission), Reseller (wholesale pricing, keep margin), White-Label (full brand)
+- **Revenue calculator:** JS sliders for clients × rate − wholesale cost → gross / net / annual output
+- **Application form:** `formsubmit.co` → `rob@probotsolutions.com`, subject "New ProBot Partner Application"
+- Has geo meta tags (targets MA agencies as well as national)
+
 ### `service-page.css`
 
 Shared styles for all service/landing pages. Key classes:
@@ -327,7 +348,7 @@ When adding or modifying interactive elements:
 | Custom domain | Live | `probotma.boston` — DNS verified, HTTPS enforcing |
 | All canonical URLs | Updated | All pages point to `probotma.boston/` |
 | Bing Webmaster Tools | Tag live, needs verify click | `msvalidate.01` in `<head>` of index.html |
-| Sitemap | 9 pages, ready to submit | `probotma.boston/sitemap.xml` |
+| Sitemap | 11 pages, ready to submit | `probotma.boston/sitemap.xml` |
 | LocalBusiness schema | Live | index.html + MA page — full geo + areaServed |
 | Organization schema | Live (as LocalBusiness) | index.html |
 | FAQPage schema | Live | All service pages + pricing + MA page |
@@ -347,6 +368,44 @@ When adding or modifying interactive elements:
 - Email: `rob@probotsolutions.com`
 - Phone: `(781) 307-3117`
 - Booking calendar: `https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW`
+
+---
+
+## EOD Build Summary — 2026-04-12
+
+### Site structure (11 live pages at probotma.boston)
+
+| Page | URL | Added |
+|------|-----|-------|
+| Landing page | `/` | 2026-04-08 (redesigned) |
+| Pricing | `/pricing.html` | 2026-04-11 |
+| AI for Contractors | `/ai-receptionist-contractors.html` | 2026-04-08 |
+| AI for HVAC | `/ai-voice-agent-hvac.html` | 2026-04-08 |
+| AI for Plumbers | `/ai-voice-agent-plumbers.html` | 2026-04-11 |
+| 24/7 Emergency AI | `/ai-receptionist-24-7-emergency.html` | 2026-04-11 |
+| AI vs Answering Service | `/replace-answering-service-with-ai.html` | 2026-04-08 |
+| Massachusetts Local | `/ai-answering-service-massachusetts.html` | 2026-04-11 |
+| AI Playbook | `/playbook.html` | 2026-04-08 |
+| Playbook Sales Page | `/sell.html` | 2026-04-12 |
+| Agency Partner Program | `/agency.html` | 2026-04-12 |
+
+### What was built on 2026-04-12
+
+**New revenue assets:**
+- `sell.html` — Digital product sales page for the 25-Industry AI Voice Agent Playbook at $97 one-time. Includes: product preview with live HVAC prompt excerpt, 25-industry grid, 3 buyer persona cards, platform compatibility list (Vapi/ElevenLabs/Bland AI/Retell etc.), 30-day guarantee, FAQ accordion (6 Qs), and buy CTA linked to Gumroad `probotmaestro.gumroad.com/l/omofdf`
+- `agency.html` — White-label/reseller partner program page. Includes: revenue math strip, interactive JS revenue calculator (clients × rate − wholesale = margin), 4-step how-it-works, 3 partner tiers (Referral 20% commission / Reseller keep margin / White-Label full brand), 6-item resource grid, partner application form via formsubmit.co
+
+**Source asset:**
+- `ProBot-25-Industry-Voice-Agent-Playbook.html` — Rob's standalone HTML file containing 25 complete deploy-ready AI voice agent system prompts (one per industry). Gumroad product live. This is the product being sold on sell.html.
+
+**Infrastructure:**
+- `sitemap.xml` updated from 9 → 11 pages; sell.html and agency.html added at priority 0.85
+- Both pages merged to live branch `claude/create-landing-page-Knwwo` and deployed
+
+### Pending (requires Rob's action)
+1. **Bing Webmaster Tools** — click "Verify" at bing.com/webmasters
+2. **Google Search Console** — get HTML meta tag → paste to Claude → live in 60 seconds
+3. **Gumroad** — product already live at `probotmaestro.gumroad.com/l/omofdf`; confirm product name, price ($97), and file upload are correct
 
 ---
 
