@@ -8,7 +8,7 @@
   'use strict';
 
   /* ─── Config ──────────────────────────────── */
-  var WORKER_URL = 'https://probot-chat.YOUR_SUBDOMAIN.workers.dev';
+  var WORKER_URL = 'https://probot-chat.coachmack9.workers.dev';
   var MAX_HISTORY = 12; /* keep last N messages in context */
   var BOT_NAME    = 'ProBot';
   var BOT_TAGLINE = 'AI Assistant · ProBot Solutions';
