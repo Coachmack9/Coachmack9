@@ -10,8 +10,8 @@
   /* ─── Config ──────────────────────────────── */
   var WORKER_URL = 'https://probot-chat.coachmack9.workers.dev';
   var MAX_HISTORY = 12; /* keep last N messages in context */
-  var BOT_NAME    = 'Probot';
-  var BOT_TAGLINE = 'AI Assistant · Probot Solutions';
+  var BOT_NAME    = 'ProBot';
+  var BOT_TAGLINE = 'AI Assistant · ProBot Solutions';
 
   /* ─── State ───────────────────────────────── */
   var messages  = [];   /* [{role, content}] */
@@ -159,7 +159,7 @@
     sendBtn.addEventListener('click', sendMessage);
 
     /* Show welcome message */
-    addBotMessage("Hi! I'm Probot — your AI assistant for Probot Solutions. I can answer questions about our AI voice agent service, pricing, the 25-Industry Playbook, or our partner program. What would you like to know?");
+    addBotMessage("Hi! I'm ProBot — your AI assistant for ProBot Solutions. I can answer questions about our AI voice agent service, pricing, the 25-Industry Playbook, or our partner program. What would you like to know?");
   }
 
   /* ─── Toggle / open / close ───────────────── */
