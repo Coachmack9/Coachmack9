@@ -183,34 +183,16 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="eyebrow eyebrow--light">Live Demo</span>
-        <h2>Hear ProBot <span class="highlight">Answer a Real Call</span></h2>
-        <p>Click play to hear a 30-second inbound call — from first ring to booked appointment.</p>
+        <h2>Talk to <span class="highlight">Harvey — Our AI Receptionist</span></h2>
+        <p>Click the button below and speak with Harvey live. Ask him about pricing, services, or how ProBot works.</p>
       </div>
-      <div class="demo-player reveal">
-        <div class="demo-player__header">
-          <div class="demo-caller-info">
-            <div class="demo-dot" id="demoDot"></div>
-            <div>
-              <strong>Inbound Call — Action Plumbing</strong>
-              <small>AI Receptionist Active</small>
-            </div>
-          </div>
-          <div class="demo-timer" id="demoTimer">0:00</div>
+      <div class="demo-player reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;gap:20px;">
+        <div style="text-align:center;">
+          <div style="font-size:2.5rem;margin-bottom:8px;">🎙️</div>
+          <strong style="font-size:1.1rem;color:#e2e8f0;">Harvey — ProBot AI Receptionist</strong><br>
+          <small style="color:#94a3b8;">Click the button to start a live voice conversation</small>
         </div>
-        <div class="demo-player__chat" id="demoChat">
-          <div class="demo-start-screen" id="demoStartScreen">
-            <div class="demo-phone-icon">📞</div>
-            <p>Interactive call simulation</p>
-            <button class="btn btn--primary btn--lg" id="demoPlayBtn">▶ Play Demo Call</button>
-          </div>
-        </div>
-        <div class="demo-player__footer">
-          <div class="demo-labels">
-            <span class="demo-label demo-label--ai">ProBot AI</span>
-            <span class="demo-label demo-label--caller">Caller</span>
-          </div>
-          <button class="demo-reset" id="demoResetBtn" style="display:none" aria-label="Replay demo">↺ Replay</button>
-        </div>
+        <elevenlabs-convai agent-id="agent_0901kmjs00zgf61r0g63b5n6a5dt"></elevenlabs-convai>
       </div>
       <div class="demo-cta reveal">
         <p>Want your business to sound like this?</p>
@@ -218,6 +200,7 @@
       </div>
     </div>
   </section>
+  <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
 
   <!-- ════ HOW IT WORKS ════ -->
   <section class="how-section section" id="how">
