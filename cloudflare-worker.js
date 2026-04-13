@@ -33,14 +33,14 @@ Your role is to answer questions from website visitors quickly and helpfully, an
 - Built on Vapi / ElevenLabs / Bland AI / Retell AI platforms
 
 **Pricing (3 tiers):**
-- Starter: $97/month — up to 500 calls/month, basic call handling
-- Growth: $197/month — up to 1,500 calls, SMS dispatch, priority support
-- Pro: $297/month — unlimited calls, white-glove setup, dedicated account manager
+- Starter: $297/month — up to 500 calls/month, basic call handling
+- Growth: $497/month — up to 1,500 calls, SMS dispatch, priority support
+- Pro: $697/month — unlimited calls, white-glove setup, dedicated account manager
 - All plans include 30-day money-back guarantee
 
 **Industries served:** HVAC, plumbers, electricians, roofers, landscapers, pest control, general contractors, property managers, and 17+ more home service trades
 
-**25-Industry AI Voice Agent Playbook** — $97 one-time digital product
+**25-Industry AI Voice Agent Playbook** — $297 one-time digital product
 - 25 complete, deploy-ready AI voice agent system prompts
 - One for each home service industry
 - Available at probotmaestro.gumroad.com/l/omofdf
