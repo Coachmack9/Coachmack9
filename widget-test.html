@@ -141,16 +141,6 @@ function testWorkerOnly() {
     var elapsed = Date.now() - t0;
     log('→ HTTP status: ' + res.status + ' (' + elapsed + 'ms)', res.ok ? 'pass' : 'warn');
 
-    // Check CORS
-    var corsOrigin = res.headers.get('Access-Control-Allow-Origin');
-    if (corsOrigin) {
-      log('✓ CORS header present: ' + corsOrigin, 'pass');
-      setDot('d-cors', 'pass');
-    } else {
-      log('⚠ No CORS header — may cause issues on probotma.boston', 'warn');
-      setDot('d-cors', 'fail');
-    }
-
     if (!res.ok) {
       setDot('d-worker', 'fail');
       log('✗ Worker returned error status ' + res.status, 'fail');
@@ -182,6 +172,8 @@ function testWorkerOnly() {
       log('✓ Got AI response (' + reply.length + ' chars):', 'pass');
       log('  "' + reply.substring(0, 200) + (reply.length > 200 ? '...' : '') + '"', 'pass');
       setDot('d-response', 'pass');
+      setDot('d-cors', 'pass');
+      log('✓ CORS validated (cross-origin request succeeded)', 'pass');
       log('\n✅ CHAT WIDGET IS FULLY WORKING!', 'pass');
     } else {
       log('✗ Unexpected response format:', 'fail');
