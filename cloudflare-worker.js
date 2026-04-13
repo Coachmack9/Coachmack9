@@ -11,7 +11,10 @@
    4. Paste that URL into chat-widget.js WORKER_URL
    ═══════════════════════════════════════════ */
 
-const ALLOWED_ORIGIN = 'https://probotma.boston';
+const ALLOWED_ORIGINS = [
+  'https://probotma.boston',
+  'https://coachmack9.github.io',
+];
 const ANTHROPIC_URL  = 'https://api.anthropic.com/v1/messages';
 const MODEL          = 'claude-haiku-4-5-20251001';
 const MAX_TOKENS     = 512;
@@ -63,14 +66,17 @@ Your role is to answer questions from website visitors quickly and helpfully, an
 
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get('Origin') || '';
+    const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+
     /* ── CORS pre-flight ──────────────────────── */
     if (request.method === 'OPTIONS') {
-      return corsResponse(null, 204, env);
+      return corsResponse(null, 204, allowedOrigin);
     }
 
     /* ── Only accept POST ─────────────────────── */
     if (request.method !== 'POST') {
-      return corsResponse(JSON.stringify({ error: 'Method not allowed' }), 405, env);
+      return corsResponse(JSON.stringify({ error: 'Method not allowed' }), 405, allowedOrigin);
     }
 
     /* ── Parse body ───────────────────────────── */
@@ -78,12 +84,12 @@ export default {
     try {
       body = await request.json();
     } catch {
-      return corsResponse(JSON.stringify({ error: 'Invalid JSON' }), 400, env);
+      return corsResponse(JSON.stringify({ error: 'Invalid JSON' }), 400, allowedOrigin);
     }
 
     const messages = body.messages;
     if (!Array.isArray(messages) || messages.length === 0) {
-      return corsResponse(JSON.stringify({ error: 'messages array required' }), 400, env);
+      return corsResponse(JSON.stringify({ error: 'messages array required' }), 400, allowedOrigin);
     }
 
     /* ── Call Anthropic API ───────────────────── */
@@ -104,19 +110,19 @@ export default {
         }),
       });
     } catch (err) {
-      return corsResponse(JSON.stringify({ error: 'Upstream fetch failed' }), 502, env);
+      return corsResponse(JSON.stringify({ error: 'Upstream fetch failed' }), 502, allowedOrigin);
     }
 
     /* ── Forward response ─────────────────────── */
     const data = await anthropicRes.json();
-    return corsResponse(JSON.stringify(data), anthropicRes.status, env);
+    return corsResponse(JSON.stringify(data), anthropicRes.status, allowedOrigin);
   },
 };
 
 /* ── Helper: add CORS headers ─────────────────── */
-function corsResponse(body, status, env) {
+function corsResponse(body, status, origin) {
   const headers = {
-    'Access-Control-Allow-Origin':  ALLOWED_ORIGIN,
+    'Access-Control-Allow-Origin':  origin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Content-Type':                 'application/json',
