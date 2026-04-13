@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProBot Chat Widget — Test Page</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #1a202c; padding: 32px; }
+    h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+    p  { color: #64748b; margin-bottom: 24px; font-size: 14px; }
+    .card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 20px; }
+    h2 { font-size: 1rem; font-weight: 600; margin-bottom: 12px; }
+    button {
+      padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;
+      font-family: inherit; font-size: 14px; font-weight: 600;
+      background: #0EA5E9; color: #fff; margin-right: 8px; margin-bottom: 8px;
+      transition: background 0.15s;
+    }
+    button:hover { background: #0284C7; }
+    button.secondary { background: #e2e8f0; color: #1a202c; }
+    button.secondary:hover { background: #cbd5e1; }
+    #log {
+      background: #0c1a2e; color: #e2e8f0; font-family: monospace; font-size: 13px;
+      padding: 16px; border-radius: 8px; min-height: 160px; max-height: 400px;
+      overflow-y: auto; white-space: pre-wrap; word-break: break-all;
+    }
+    .pass { color: #22c55e; }
+    .fail { color: #ef4444; }
+    .warn { color: #f59e0b; }
+    .info { color: #94a3b8; }
+    .status-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #cbd5e1; flex-shrink: 0; }
+    .dot.pass { background: #22c55e; }
+    .dot.fail { background: #ef4444; }
+    .dot.pending { background: #f59e0b; animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    .label { font-size: 14px; }
+    #checklist { list-style: none; }
+    #checklist li { display: flex; gap: 10px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+    #checklist li:last-child { border: none; }
+  </style>
+</head>
+<body>
+
+<h1>ProBot Chat Widget — Launch Test</h1>
+<p>Run these tests to verify everything is working before launch.</p>
+
+<!-- Quick checklist -->
+<div class="card">
+  <h2>Pre-flight Checklist</h2>
+  <ul id="checklist">
+    <li><div class="dot" id="d-widget"></div><span class="label">Chat widget script loaded</span></li>
+    <li><div class="dot" id="d-bubble"></div><span class="label">Blue bubble visible in bottom-right corner</span></li>
+    <li><div class="dot" id="d-worker"></div><span class="label">Cloudflare Worker reachable</span></li>
+    <li><div class="dot" id="d-response"></div><span class="label">AI returns a real response</span></li>
+    <li><div class="dot" id="d-cors"></div><span class="label">CORS headers correct</span></li>
+  </ul>
+</div>
+
+<!-- Controls -->
+<div class="card">
+  <h2>Run Tests</h2>
+  <button onclick="runAll()">Run All Tests</button>
+  <button class="secondary" onclick="testWorkerOnly()">Test Worker Only</button>
+  <button class="secondary" onclick="clearLog()">Clear Log</button>
+</div>
+
+<!-- Log -->
+<div class="card">
+  <h2>Test Output</h2>
+  <div id="log"><span class="info">Click "Run All Tests" to begin...</span></div>
+</div>
+
+<!-- Load the real widget -->
+<script src="chat-widget.js"></script>
+
+<script>
+const WORKER_URL = 'https://probot-chat.coachmack9.workers.dev';
+
+function log(msg, type) {
+  var el = document.getElementById('log');
+  var span = document.createElement('span');
+  span.className = type || 'info';
+  span.textContent = msg + '\n';
+  el.appendChild(span);
+  el.scrollTop = el.scrollHeight;
+}
+
+function setDot(id, state) {
+  var d = document.getElementById(id);
+  d.className = 'dot ' + state;
+}
+
+function clearLog() {
+  document.getElementById('log').innerHTML = '<span class="info">Log cleared.\n</span>';
+  ['d-widget','d-bubble','d-worker','d-response','d-cors'].forEach(function(id) {
+    setDot(id, '');
+  });
+}
+
+function testWidget() {
+  log('\n── Widget Tests ──────────────────────', 'info');
+
+  // Check script loaded
+  var bubble = document.getElementById('pb-bubble');
+  if (bubble) {
+    log('✓ Chat widget DOM elements found', 'pass');
+    setDot('d-widget', 'pass');
+  } else {
+    log('✗ Chat widget DOM not found — script may have failed to load', 'fail');
+    setDot('d-widget', 'fail');
+    return false;
+  }
+
+  // Check bubble visible
+  var style = window.getComputedStyle(bubble);
+  if (style.display !== 'none' && style.visibility !== 'hidden') {
+    log('✓ Blue bubble is visible', 'pass');
+    setDot('d-bubble', 'pass');
+  } else {
+    log('✗ Bubble element exists but is hidden', 'fail');
+    setDot('d-bubble', 'fail');
+  }
+
+  return true;
+}
+
+function testWorkerOnly() {
+  log('\n── Worker Connectivity Test ──────────', 'info');
+  setDot('d-worker', 'pending');
+  log('→ Sending test message to worker...', 'info');
+
+  var t0 = Date.now();
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages: [{ role: 'user', content: 'what is your pricing?' }] })
+  })
+  .then(function(res) {
+    var elapsed = Date.now() - t0;
+    log('→ HTTP status: ' + res.status + ' (' + elapsed + 'ms)', res.ok ? 'pass' : 'warn');
+
+    // Check CORS
+    var corsOrigin = res.headers.get('Access-Control-Allow-Origin');
+    if (corsOrigin) {
+      log('✓ CORS header present: ' + corsOrigin, 'pass');
+      setDot('d-cors', 'pass');
+    } else {
+      log('⚠ No CORS header — may cause issues on probotma.boston', 'warn');
+      setDot('d-cors', 'fail');
+    }
+
+    if (!res.ok) {
+      setDot('d-worker', 'fail');
+      log('✗ Worker returned error status ' + res.status, 'fail');
+      return res.text().then(function(t) { log('Response body: ' + t, 'fail'); });
+    }
+
+    setDot('d-worker', 'pass');
+    return res.json();
+  })
+  .then(function(data) {
+    if (!data) return;
+    log('\n── Response Parsing ──────────────────', 'info');
+
+    // Check for error in API response
+    if (data.error) {
+      log('✗ API error: ' + data.error.message, 'fail');
+      log('  Type: ' + data.error.type, 'fail');
+      if (data.error.type === 'authentication_error') {
+        log('  → ANTHROPIC_API_KEY is missing or invalid in Cloudflare', 'warn');
+        log('  → Fix: dash.cloudflare.com → Workers → probot-chat → Settings → Variables → add ANTHROPIC_API_KEY secret', 'warn');
+      }
+      setDot('d-response', 'fail');
+      return;
+    }
+
+    // Parse Claude response
+    if (data.content && data.content[0] && data.content[0].text) {
+      var reply = data.content[0].text;
+      log('✓ Got AI response (' + reply.length + ' chars):', 'pass');
+      log('  "' + reply.substring(0, 200) + (reply.length > 200 ? '...' : '') + '"', 'pass');
+      setDot('d-response', 'pass');
+      log('\n✅ CHAT WIDGET IS FULLY WORKING!', 'pass');
+    } else {
+      log('✗ Unexpected response format:', 'fail');
+      log(JSON.stringify(data, null, 2), 'fail');
+      setDot('d-response', 'fail');
+    }
+  })
+  .catch(function(err) {
+    log('✗ Network error: ' + err.message, 'fail');
+    setDot('d-worker', 'fail');
+    setDot('d-response', 'fail');
+    if (err.message.indexOf('CORS') !== -1 || err.message.indexOf('fetch') !== -1) {
+      log('  → This page may not be on probotma.boston — open this file from there', 'warn');
+    }
+  });
+}
+
+function runAll() {
+  document.getElementById('log').innerHTML = '';
+  log('ProBot Chat Widget — Launch Test\n' + new Date().toISOString() + '\n', 'info');
+  var widgetOk = testWidget();
+  testWorkerOnly();
+}
+</script>
+</body>
+</html>

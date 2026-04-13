@@ -2,12 +2,6 @@
    CoachMack — Landing Page Interactions
    ============================================= */
 
-/* ---- GoHighLevel Webhook ----
-   Replace this URL with your GHL workflow webhook.
-   In GHL: Automations → Create Workflow → Trigger: Webhook → copy the URL.
-   ---------------------------------------------------------------- */
-const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
-
 (() => {
   'use strict';
 
@@ -72,9 +66,12 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
 
   revealEls.forEach(el => revealObserver.observe(el));
 
-  // Counter observer — triggers when hero stats section is visible
+  // Counter observer — triggers when trust stats section enters viewport
   const statNumbers = document.querySelectorAll('.stat__number');
   if (statNumbers.length) {
+    const triggerEl = statNumbers[0].closest('.hero__trust') ||
+                      statNumbers[0].closest('.hero__stats') ||
+                      statNumbers[0].parentElement;
     const counterObserver = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting && !countersStarted) {
         countersStarted = true;
@@ -83,21 +80,14 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
         });
         counterObserver.disconnect();
       }
-    }, { threshold: 0.5 });
-
-    counterObserver.observe(statNumbers[0].closest('.hero__stats'));
+    }, { threshold: 0.3 });
+    counterObserver.observe(triggerEl);
   }
 
-  /* ---------- Add reveal class to section elements ---------- */
-  document.querySelectorAll(
-    '.section-header, .about__image-wrap, .about__content, ' +
-    '.contact__info, .contact__form, .testimonial-card'
-  ).forEach(el => el.classList.add('reveal'));
-
-  // Re-observe newly classified elements
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
   /* ---------- Contact form ---------- */
+  // Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
+  const FORMSPREE_ENDPOINT = 'https://formsubmit.co/ajax/rob@probotsolutions.com';
+
   const form = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
 
@@ -117,7 +107,7 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
 
   const validateEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     let valid = true;
 
@@ -149,37 +139,37 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
     submitBtn.textContent = 'Sending…';
     submitBtn.disabled = true;
 
-    const payload = {
-      name: name,
-      email: email,
-      service: document.getElementById('service').value,
-      message: document.getElementById('message').value.trim(),
-      source: 'ProBot Solutions Contact Form',
-    };
+    try {
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('service', document.getElementById('service').value);
+      formData.append('message', document.getElementById('message').value.trim());
+      formData.append('_subject', 'New ProBot Solutions inquiry');
+      formData.append('_captcha', 'false');
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
 
-    fetch(GHL_WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then(res => {
-        if (!res.ok) throw new Error('Network response was not ok');
+      if (res.ok) {
         form.reset();
         formSuccess.classList.add('visible');
-        setTimeout(() => formSuccess.classList.remove('visible'), 5000);
-      })
-      .catch(() => {
-        formSuccess.textContent = 'Something went wrong. Please email rob@probotsolutions.com directly.';
-        formSuccess.classList.add('visible');
         setTimeout(() => {
-          formSuccess.classList.remove('visible');
-          formSuccess.textContent = 'Message sent — Rob will be in touch within 24 hours.';
-        }, 6000);
-      })
-      .finally(() => {
-        submitBtn.textContent = 'Send Message';
-        submitBtn.disabled = false;
-      });
+          window.location.href = 'https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW';
+        }, 1500);
+      } else {
+        const data = await res.json();
+        const msg = data.errors ? data.errors.map(err => err.message).join(', ') : 'Submission failed. Please try again.';
+        showError('email', 'emailError', msg);
+      }
+    } catch {
+      showError('email', 'emailError', 'Network error. Please try again.');
+    } finally {
+      submitBtn.textContent = 'Send Message';
+      submitBtn.disabled = false;
+    }
   });
 
   // Clear errors on input
@@ -187,6 +177,156 @@ const GHL_WEBHOOK_URL = 'YOUR_GHL_WEBHOOK_URL_HERE';
     document.getElementById(id).addEventListener('input', () => {
       const errId = id + 'Error';
       clearError(id, errId);
+    });
+  });
+
+  /* ──────────── Voice Demo Player ──────────── */
+  const demoPlayBtn  = document.getElementById('demoPlayBtn');
+  const demoResetBtn = document.getElementById('demoResetBtn');
+  const demoChat     = document.getElementById('demoChat');
+  const demoTimer    = document.getElementById('demoTimer');
+  const demoDot      = document.getElementById('demoDot');
+  const demoStart    = document.getElementById('demoStartScreen');
+
+  const DEMO_SCRIPT = [
+    { role: 'ai',     text: 'Thank you for calling Action Plumbing — this is Max, your AI receptionist. How can I help you today?', delay: 800 },
+    { role: 'caller', text: 'Hey, my kitchen sink is completely backed up. Water is going everywhere.', delay: 2800 },
+    { role: 'ai',     text: "I'm sorry to hear that — we can get a plumber out to you today. May I get your name?", delay: 2400 },
+    { role: 'caller', text: 'John Martinez.', delay: 2000 },
+    { role: 'ai',     text: 'Hi John! What address should I send the technician to?', delay: 1800 },
+    { role: 'caller', text: '47 Oak Street, Framingham.', delay: 2000 },
+    { role: 'ai',     text: 'Got it. We have a 2 PM opening today — does that work for you?', delay: 2200 },
+    { role: 'caller', text: 'Yes, 2 PM is perfect.', delay: 1800 },
+    { role: 'ai',     text: "You're all set, John! A plumber will be at 47 Oak Street at 2 PM. You'll get a text confirmation shortly.", delay: 2600 },
+    { role: 'caller', text: "That's great. Thank you so much!", delay: 2000 },
+    { role: 'ai',     text: "Have a great day, John! We'll see you at 2!", delay: 1600 },
+  ];
+
+  let demoRunning = false;
+  let demoInterval = null;
+  let demoSeconds = 0;
+
+  function demoTick() {
+    demoSeconds++;
+    const m = Math.floor(demoSeconds / 60);
+    const s = String(demoSeconds % 60).padStart(2, '0');
+    if (demoTimer) demoTimer.textContent = `${m}:${s}`;
+  }
+
+  function makeDemoMsg(role, text) {
+    const wrap = document.createElement('div');
+    wrap.className = `demo-msg demo-msg--${role}`;
+
+    const av = document.createElement('div');
+    av.className = 'demo-msg__avatar';
+    av.textContent = role === 'ai' ? 'AI' : 'YOU';
+
+    const bub = document.createElement('div');
+    bub.className = 'demo-msg__bubble';
+    bub.textContent = text;
+
+    wrap.appendChild(av);
+    wrap.appendChild(bub);
+    return wrap;
+  }
+
+  function makeTypingIndicator(role) {
+    const wrap = document.createElement('div');
+    wrap.className = `demo-msg demo-msg--${role} demo-typing`;
+
+    const av = document.createElement('div');
+    av.className = 'demo-msg__avatar';
+    av.textContent = role === 'ai' ? 'AI' : 'YOU';
+
+    const bub = document.createElement('div');
+    bub.className = 'demo-msg__bubble';
+    for (let i = 0; i < 3; i++) {
+      const dot = document.createElement('span');
+      dot.className = 'typing-dot';
+      bub.appendChild(dot);
+    }
+
+    wrap.appendChild(av);
+    wrap.appendChild(bub);
+    return wrap;
+  }
+
+  async function runDemo() {
+    if (demoRunning || !demoPlayBtn) return;
+    demoRunning = true;
+
+    // Clear start screen, prep chat
+    if (demoStart) demoStart.style.display = 'none';
+    if (demoResetBtn) demoResetBtn.style.display = 'flex';
+    if (demoDot) demoDot.classList.add('active');
+
+    demoSeconds = 0;
+    demoInterval = setInterval(demoTick, 1000);
+
+    for (const line of DEMO_SCRIPT) {
+      // Show typing indicator
+      const typing = makeTypingIndicator(line.role);
+      demoChat.appendChild(typing);
+      demoChat.scrollTop = demoChat.scrollHeight;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => typing.classList.add('visible'));
+      });
+
+      await new Promise(r => setTimeout(r, line.delay));
+
+      // Replace typing with message
+      typing.remove();
+      const msg = makeDemoMsg(line.role, line.text);
+      demoChat.appendChild(msg);
+      demoChat.scrollTop = demoChat.scrollHeight;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => msg.classList.add('visible'));
+      });
+
+      await new Promise(r => setTimeout(r, 400));
+    }
+
+    clearInterval(demoInterval);
+    if (demoDot) demoDot.classList.remove('active');
+
+    // Show "call ended" message
+    const ended = document.createElement('div');
+    ended.style.cssText = 'text-align:center;font-size:0.8rem;color:rgba(255,255,255,.35);padding:12px 0;';
+    ended.textContent = '— Call ended · Appointment booked ✅ —';
+    demoChat.appendChild(ended);
+    demoChat.scrollTop = demoChat.scrollHeight;
+  }
+
+  function resetDemo() {
+    demoRunning = false;
+    clearInterval(demoInterval);
+    demoSeconds = 0;
+    if (demoTimer) demoTimer.textContent = '0:00';
+    if (demoDot) demoDot.classList.remove('active');
+    if (demoResetBtn) demoResetBtn.style.display = 'none';
+    if (demoChat) {
+      demoChat.innerHTML = '';
+      if (demoStart) {
+        demoStart.style.display = 'flex';
+        demoChat.appendChild(demoStart);
+      }
+    }
+  }
+
+  if (demoPlayBtn) demoPlayBtn.addEventListener('click', runDemo);
+  if (demoResetBtn) demoResetBtn.addEventListener('click', resetDemo);
+
+  // "Hear the AI" buttons auto-scroll to demo AND start it
+  document.querySelectorAll('a[href="#demo"]').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      const demoSection = document.getElementById('demo');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { if (!demoRunning) runDemo(); }, 800);
+      }
     });
   });
 
