@@ -31,6 +31,7 @@ Guidelines for AI assistants working in this repository.
 ├── replace-answering-service-with-ai.html  Comparison page — AI vs answering service
 ├── ai-answering-service-massachusetts.html Local SEO page — MA/New England geo targeting (added 2026-04-11)
 ├── sell.html                               Digital product sales page — 25-Industry Playbook $97 (added 2026-04-12)
+├── BingSiteAuth.xml                        Bing Webmaster Tools XML verification file (added 2026-04-16)
 ├── agency.html                             Agency/reseller partner program page (added 2026-04-12)
 ├── service-page.css                        Shared styles for all service pages
 ├── sitemap.xml                             All 11 pages listed with probotma.boston URLs
@@ -368,6 +369,40 @@ When adding or modifying interactive elements:
 - Email: `rob@probotsolutions.com`
 - Phone: `(781) 307-3117`
 - Booking calendar: `https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW`
+
+---
+
+## EOD Build Summary — 2026-04-16
+
+### Changes
+
+**Pricing updated sitewide** — all 11 pages + cloudflare-worker.js updated:
+- Starter: $97/mo → **$297/mo**
+- Growth: $197/mo → **$497/mo**
+- Pro: $297/mo → **$697/mo**
+
+**Logo fixed** — `logo.svg` updated to single-line wordmark: `ProBot Solutions` (lowercase "o" in Bot, darker blue tspan on "ot")
+
+**Harvey ElevenLabs voice widget** — live conversational AI embedded in the voice demo section on `index.html`
+- Agent: Harvey · Agent ID: `agent_0901kmjs00zgf61r0g63b5n6a5dt`
+- Voice: Mark · Voice ID: `UgBBYS2sOqTuMpoF3BR0`
+- Widget script: `https://elevenlabs.io/convai-widget/index.js`
+- Replaces the old simulated text transcript demo player
+
+**Bing Webmaster Tools** — `BingSiteAuth.xml` added at site root for XML file verification method (meta tag `16B870FF6B74C9F4B6264A65284781CC` already in `index.html`)
+
+**Chat widget** — `chat-widget.js` Cloudflare Worker proxy fully working; all 5 widget tests green
+
+### Files added/changed
+- `logo.svg` — single-line ProBot wordmark, lowercase o
+- `index.html` — Harvey ElevenLabs widget in demo section
+- `BingSiteAuth.xml` — Bing XML verification file
+- `pricing.html`, `index.html`, `agency.html`, `sell.html`, `cloudflare-worker.js`, all 6 service pages — pricing updated to $297/$497/$697
+
+### Pending (requires Rob's action)
+- **Bing Webmaster Tools** — switch to XML file method and click Verify at bing.com/webmasters
+- **Google Search Console** — get HTML meta tag from search.google.com/search-console → paste to Claude → deploy in 60 seconds
+- **ElevenLabs Harvey** — confirm "Allow embedding on external websites" is enabled in Harvey's Security/Widget settings
 
 ---
 
