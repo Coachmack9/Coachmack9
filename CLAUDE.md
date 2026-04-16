@@ -394,7 +394,7 @@ When adding or modifying interactive elements:
 **Chat widget** — `chat-widget.js` Cloudflare Worker proxy fully working; all 5 widget tests green
 
 ### Files added/changed
-- `logo.svg` — single-line ProBot wordmark, lowercase o
+- `ProBotMA-Landing-Page.html` — local standalone landing page for MA contractors (different design/pricing from main site); Harvey widget added 2026-04-17
 - `index.html` — Harvey ElevenLabs widget in demo section
 - `BingSiteAuth.xml` — Bing XML verification file
 - `pricing.html`, `index.html`, `agency.html`, `sell.html`, `cloudflare-worker.js`, all 6 service pages — pricing updated to $297/$497/$697
