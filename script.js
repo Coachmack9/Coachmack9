@@ -93,7 +93,7 @@
 
   /* ---------- Contact form ---------- */
   // Replace YOUR_FORM_ID with the ID from your Formspree dashboard (formspree.io)
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdbznve';
 
   const form = document.getElementById('contactForm');
   const formSuccess = document.getElementById('formSuccess');
