@@ -183,6 +183,47 @@
     });
   });
 
+  /* ---------- Testimonials carousel ---------- */
+  const track      = document.getElementById('testimonialTrack');
+  const dotsWrap   = document.getElementById('testimonialDots');
+  const tCards     = track ? track.querySelectorAll('.testimonial-card') : [];
+  let tIndex       = 0;
+  let tTimer       = null;
+
+  if (track && tCards.length) {
+    track.style.transition = 'transform 0.5s ease';
+
+    const goTo = idx => {
+      tIndex = (idx + tCards.length) % tCards.length;
+      track.style.transform = `translateX(-${tIndex * 100}%)`;
+      dotsWrap.querySelectorAll('.testimonials__dot').forEach((d, i) => {
+        d.classList.toggle('active', i === tIndex);
+      });
+    };
+
+    const startAuto = () => {
+      tTimer = setInterval(() => goTo(tIndex + 1), 5000);
+    };
+
+    const stopAuto = () => clearInterval(tTimer);
+
+    // Render dots
+    tCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'testimonials__dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+      dot.addEventListener('click', () => { stopAuto(); goTo(i); startAuto(); });
+      dotsWrap.appendChild(dot);
+    });
+
+    // Pause on hover
+    track.addEventListener('mouseenter', stopAuto);
+    track.addEventListener('mouseleave', startAuto);
+
+    goTo(0);
+    startAuto();
+  }
+
   /* ---------- Smooth active nav highlight ---------- */
   const sections = document.querySelectorAll('section[id]');
   const navItems = document.querySelectorAll('.navbar__links a');

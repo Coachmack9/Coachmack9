@@ -541,13 +541,15 @@ h2 {
 }
 
 .testimonials__track {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
   margin-bottom: 40px;
 }
 
 .testimonial-card {
+  flex: 0 0 100%;
+  min-width: 0;
   background: var(--dark-2);
   border-color: rgba(255,255,255,.08);
 }
@@ -601,6 +603,22 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+
+.testimonials__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.testimonials__dot.active {
+  background: var(--primary);
+  transform: scale(1.4);
 }
 
 /* ===========================
