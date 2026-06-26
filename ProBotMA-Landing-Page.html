@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProBot MA — AI Systems for Massachusetts Contractors | probotma.boston</title>
+<meta name="description" content="Done-for-you AI voice agents, missed call text-back, 5-star review automation, and lead reactivation for MA contractors. Live in 48 hours. 3 booked jobs guaranteed.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --navy:#0f172a;
+  --navy2:#1e293b;
+  --blue:#1e40af;
+  --orange:#FF6B35;
+  --orange2:#ff8c5a;
+  --slate:#475569;
+  --slate-lt:#94a3b8;
+  --border:#e2e8f0;
+  --bg:#f8fafc;
+  --white:#ffffff;
+  --green:#16a34a;
+  --green-lt:#dcfce7;
+}
+
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;color:var(--navy);background:var(--white);font-size:16px;line-height:1.6;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(15,23,42,0.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;height:60px;
+}
+.nav-brand{display:flex;align-items:center;gap:10px;}
+.nav-logo{font-size:15px;font-weight:800;color:var(--white);letter-spacing:-0.3px;}
+.nav-logo span{color:var(--orange);}
+.nav-badge{background:var(--orange);color:var(--white);font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;}
+.nav-cta{
+  background:var(--orange);color:var(--white);
+  border:none;border-radius:6px;
+  padding:8px 18px;font-size:13px;font-weight:700;
+  font-family:'Inter',sans-serif;cursor:pointer;
+  text-decoration:none;
+  transition:background 0.15s,transform 0.1s;
+}
+.nav-cta:hover{background:var(--orange2);transform:translateY(-1px);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  background:var(--navy);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:100px 24px 60px;
+  position:relative;overflow:hidden;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,107,53,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,53,0.05) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent);
+}
+.hero-inner{max-width:780px;text-align:center;position:relative;z-index:1;}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.25);
+  border-radius:20px;padding:5px 14px;
+  font-size:12px;font-weight:700;color:var(--orange);
+  letter-spacing:0.8px;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero-eyebrow .dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+.hero h1{
+  font-size:clamp(36px,6vw,60px);
+  font-weight:900;color:var(--white);
+  letter-spacing:-1.5px;line-height:1.08;
+  margin-bottom:20px;
+}
+.hero h1 em{font-style:normal;color:var(--orange);}
+
+.hero-sub{
+  font-size:clamp(15px,2vw,18px);
+  color:var(--slate-lt);line-height:1.7;
+  max-width:560px;margin:0 auto 36px;
+}
+
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{
+  background:var(--orange);color:var(--white);
+  padding:14px 32px;border-radius:8px;font-size:15px;font-weight:700;
+  text-decoration:none;display:inline-block;
+  transition:background 0.15s,transform 0.1s,box-shadow 0.15s;
+  box-shadow:0 4px 20px rgba(255,107,53,0.4);
+}
+.btn-primary:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(255,107,53,0.5);}
+.btn-secondary{
+  background:rgba(255,255,255,0.07);color:var(--white);
+  border:1px solid rgba(255,255,255,0.15);
+  padding:14px 28px;border-radius:8px;font-size:15px;font-weight:600;
+  text-decoration:none;display:inline-block;
+  transition:background 0.15s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,0.12);}
+
+.hero-stats{
+  display:flex;gap:32px;justify-content:center;flex-wrap:wrap;
+  padding-top:36px;border-top:1px solid rgba(255,255,255,0.08);
+}
+.hero-stat{text-align:center;}
+.hero-stat .num{font-size:28px;font-weight:900;color:var(--white);}
+.hero-stat .num span{color:var(--orange);}
+.hero-stat .label{font-size:11px;color:var(--slate-lt);font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+
+/* ── HARVEY DEMO ── */
+.harvey-demo{
+  margin-top:40px;padding-top:32px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+}
+.harvey-demo p{
+  font-size:13px;color:var(--slate-lt);margin-bottom:14px;letter-spacing:0.3px;
+}
+.harvey-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.2);
+  border-radius:20px;padding:4px 14px;
+  font-size:11px;font-weight:700;color:var(--orange);
+  letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px;
+}
+
+/* ── PAIN SECTION ── */
+.pain{background:var(--bg);padding:72px 24px;}
+.pain-inner{max-width:960px;margin:0 auto;}
+.section-eyebrow{font-size:11px;font-weight:700;color:var(--orange);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px;}
+.section-title{font-size:clamp(24px,4vw,36px);font-weight:800;letter-spacing:-0.5px;line-height:1.2;margin-bottom:12px;}
+.section-sub{font-size:15px;color:var(--slate);max-width:540px;line-height:1.7;margin-bottom:40px;}
+
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.pain-card{
+  background:var(--white);border:1px solid var(--border);border-radius:10px;
+  padding:22px;border-top:3px solid var(--orange);
+}
+.pain-card .icon{font-size:22px;margin-bottom:10px;}
+.pain-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.pain-card p{font-size:13px;color:var(--slate);line-height:1.6;}
+.pain-stat{font-size:18px;font-weight:800;color:var(--orange);display:block;margin-top:8px;}
+
+/* ── SYSTEMS ── */
+.systems{padding:80px 24px;background:var(--white);}
+.systems-inner{max-width:1000px;margin:0 auto;}
+.systems-header{text-align:center;margin-bottom:52px;}
+.systems-header .section-sub{margin:0 auto;}
+
+.system-card{
+  display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:start;
+  background:var(--bg);border:1px solid var(--border);border-radius:12px;
+  padding:28px;margin-bottom:16px;
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.system-card:hover{border-color:#93c5fd;box-shadow:0 4px 20px rgba(30,64,175,0.08);}
+
+.sys-num{
+  width:52px;height:52px;border-radius:12px;
+  background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:900;color:var(--orange);
+  flex-shrink:0;
+}
+.sys-body h3{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:4px;}
+.sys-body .sys-tag{
+  display:inline-block;background:var(--green-lt);color:var(--green);
+  font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;
+}
+.sys-body p{font-size:13.5px;color:var(--slate);line-height:1.65;margin-bottom:12px;}
+.sys-bullets{display:flex;flex-wrap:wrap;gap:6px;}
+.sys-bullet{
+  background:var(--white);border:1px solid var(--border);border-radius:6px;
+  padding:4px 10px;font-size:11.5px;color:var(--slate);font-weight:500;
+}
+.sys-roi{
+  background:var(--navy);border-radius:10px;padding:16px 18px;
+  text-align:center;min-width:160px;flex-shrink:0;
+}
+.sys-roi .roi-label{font-size:10px;font-weight:700;color:var(--slate-lt);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;}
+.sys-roi .roi-value{font-size:13px;font-weight:700;color:var(--orange);line-height:1.4;}
+
+/* ── SOCIAL PROOF ── */
+.proof{background:var(--navy);padding:72px 24px;}
+.proof-inner{max-width:960px;margin:0 auto;text-align:center;}
+.proof h2{font-size:clamp(22px,3.5vw,32px);font-weight:800;color:var(--white);margin-bottom:8px;}
+.proof-sub{color:var(--slate-lt);font-size:15px;margin-bottom:44px;}
+
+.proof-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+.proof-card{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;padding:24px;text-align:left;
+}
+.proof-stars{color:var(--orange);font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+.proof-quote{font-size:14px;color:#cbd5e1;line-height:1.7;margin-bottom:16px;font-style:italic;}
+.proof-name{font-size:12px;font-weight:700;color:var(--white);}
+.proof-biz{font-size:11px;color:var(--slate-lt);}
+.proof-result{
+  margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.08);
+  font-size:12px;font-weight:700;color:var(--orange);
+}
+
+/* ── PRICING ── */
+.pricing{background:var(--bg);padding:80px 24px;}
+.pricing-inner{max-width:960px;margin:0 auto;}
+.pricing-header{text-align:center;margin-bottom:48px;}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+.tier{
+  background:var(--white);border:1px solid var(--border);border-radius:14px;
+  padding:32px 28px;position:relative;
+}
+.tier.popular{
+  background:var(--navy);border-color:var(--orange);
+  box-shadow:0 8px 40px rgba(255,107,53,0.2);
+}
+.popular-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:var(--orange);color:var(--white);
+  font-size:10px;font-weight:800;padding:4px 14px;border-radius:20px;
+  letter-spacing:0.8px;text-transform:uppercase;white-space:nowrap;
+}
+.tier-name{font-size:13px;font-weight:700;color:var(--slate-lt);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;}
+.tier.popular .tier-name{color:var(--slate-lt);}
+.tier-systems{font-size:12px;color:var(--orange);font-weight:600;margin-bottom:16px;}
+.tier-price{font-size:42px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1;}
+.tier.popular .tier-price{color:var(--white);}
+.tier-price sup{font-size:20px;font-weight:700;vertical-align:top;margin-top:8px;display:inline-block;}
+.tier-period{font-size:13px;color:var(--slate-lt);margin-top:4px;margin-bottom:4px;}
+.tier-setup{font-size:12px;color:var(--orange);font-weight:600;margin-bottom:20px;}
+.tier-divider{height:1px;background:var(--border);margin-bottom:20px;}
+.tier.popular .tier-divider{background:rgba(255,255,255,0.1);}
+.tier-feature{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:13px;color:var(--slate);}
+.tier.popular .tier-feature{color:#cbd5e1;}
+.tier-feature .check{color:var(--orange);font-weight:700;flex-shrink:0;margin-top:1px;}
+.tier-cta{
+  display:block;text-align:center;
+  background:var(--bg);color:var(--navy);border:1px solid var(--border);
+  border-radius:8px;padding:12px;font-size:14px;font-weight:700;
+  text-decoration:none;margin-top:24px;
+  transition:background 0.15s,border-color 0.15s;
+}
+.tier-cta:hover{background:var(--border);}
+.tier.popular .tier-cta{background:var(--orange);color:var(--white);border-color:var(--orange);}
+.tier.popular .tier-cta:hover{background:var(--orange2);}
+
+/* ── GUARANTEE ── */
+.guarantee{background:var(--white);padding:60px 24px;}
+.guarantee-inner{max-width:760px;margin:0 auto;text-align:center;}
+.guar-box{
+  background:linear-gradient(135deg,#fff7ed,#fff);
+  border:2px solid var(--orange);border-radius:16px;padding:44px 48px;
+}
+.guar-icon{font-size:40px;margin-bottom:16px;}
+.guar-box h2{font-size:26px;font-weight:900;color:var(--navy);margin-bottom:12px;letter-spacing:-0.5px;}
+.guar-box p{font-size:15px;color:var(--slate);line-height:1.75;max-width:520px;margin:0 auto;}
+.guar-highlight{color:var(--orange);font-weight:700;}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--bg);padding:72px 24px;}
+.how-inner{max-width:860px;margin:0 auto;}
+.how-header{text-align:center;margin-bottom:48px;}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.steps::before{
+  content:'';position:absolute;
+  top:26px;left:calc(12.5% + 20px);right:calc(12.5% + 20px);
+  height:2px;background:linear-gradient(90deg,var(--orange),var(--blue));
+}
+.step{text-align:center;padding:0 12px;position:relative;}
+.step-circle{
+  width:52px;height:52px;border-radius:50%;
+  background:var(--orange);color:var(--white);
+  font-size:18px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  box-shadow:0 4px 16px rgba(255,107,53,0.3);
+  position:relative;z-index:1;
+}
+.step h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.step p{font-size:12px;color:var(--slate);line-height:1.6;}
+
+/* ── LOCAL SECTION ── */
+.local{background:var(--white);padding:72px 24px;}
+.local-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.local-text .section-sub{margin-bottom:24px;}
+.local-markets{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.market-chip{
+  background:var(--bg);border:1px solid var(--border);border-radius:20px;
+  padding:5px 14px;font-size:12px;font-weight:600;color:var(--slate);
+}
+.local-visual{
+  background:var(--navy);border-radius:16px;padding:32px;
+}
+.local-visual h3{font-size:14px;font-weight:700;color:var(--white);margin-bottom:20px;}
+.metric-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.metric-row:last-child{border-bottom:none;}
+.metric-label{font-size:12px;color:var(--slate-lt);}
+.metric-val{font-size:14px;font-weight:800;color:var(--orange);}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  background:var(--navy);padding:80px 24px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 60% at 50% 100%,rgba(255,107,53,0.12),transparent);
+}
+.final-cta-inner{max-width:640px;margin:0 auto;position:relative;z-index:1;}
+.final-cta h2{font-size:clamp(28px,5vw,44px);font-weight:900;color:var(--white);letter-spacing:-1px;line-height:1.1;margin-bottom:16px;}
+.final-cta h2 em{font-style:normal;color:var(--orange);}
+.final-cta p{font-size:16px;color:var(--slate-lt);line-height:1.7;margin-bottom:36px;}
+.cta-pair{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-contact{
+  display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:28px;
+}
+.cta-contact p{font-size:13px;color:var(--slate-lt);}
+.cta-contact a{color:var(--orange);font-weight:700;font-size:16px;text-decoration:none;}
+
+/* ── FOOTER ── */
+footer{background:#060d1a;padding:32px 24px;text-align:center;}
+.footer-brand{font-size:14px;font-weight:800;color:var(--white);margin-bottom:4px;}
+.footer-brand span{color:var(--orange);}
+.footer-links{display:flex;gap:24px;justify-content:center;margin:12px 0;}
+.footer-links a{font-size:12px;color:var(--slate-lt);text-decoration:none;}
+.footer-links a:hover{color:var(--white);}
+.footer-copy{font-size:11px;color:#334155;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .system-card{grid-template-columns:60px 1fr;gap:16px;}
+  .sys-roi{display:none;}
+  .tiers{grid-template-columns:1fr;}
+  .steps{grid-template-columns:repeat(2,1fr);gap:32px;}
+  .steps::before{display:none;}
+  .local-inner{grid-template-columns:1fr;}
+  .local-visual{display:none;}
+}
+@media(max-width:480px){
+  .hero-stats{gap:20px;}
+  .guar-box{padding:28px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-logo"><span>ProBot</span> MA</div>
+    <div class="nav-badge">Massachusetts</div>
+  </div>
+  <a href="#get-started" class="nav-cta">Get Started Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span class="dot"></span> Built for Massachusetts Contractors</div>
+
+    <h1>Your Phone Rings.<br><em>AI Answers.</em><br>You Book the Job.</h1>
+
+    <p class="hero-sub">Done-for-you AI systems that answer every call 24/7, text back missed leads in 60 seconds, reactivate cold contacts, and fill your calendar — without adding a single employee.</p>
+
+    <div class="hero-ctas">
+      <a href="#get-started" class="btn-primary">Start My AI Setup — Free Consult</a>
+      <a href="tel:7813073117" class="btn-secondary">Call Rob: (781) 307-3117</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num"><span>48</span>hrs</div>
+        <div class="label">Live & Running</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span>24</span>/7</div>
+        <div class="label">Call Coverage</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span>3</span></div>
+        <div class="label">Jobs Guaranteed in 30 Days</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num"><span>$0</span></div>
+        <div class="label">If We Don't Deliver</div>
+      </div>
+    </div>
+
+    <!-- HARVEY LIVE DEMO -->
+    <div class="harvey-demo">
+      <div class="harvey-label">🎙️ Live AI Demo</div>
+      <p>Talk to Harvey — our AI receptionist — live right now</p>
+      <elevenlabs-convai agent-id="agent_0901kmjs00zgf61r0g63b5n6a5dt"></elevenlabs-convai>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="pain-inner">
+    <div class="section-eyebrow">The Problem</div>
+    <h2 class="section-title">Every missed call is a job you're giving away.</h2>
+    <p class="section-sub">Massachusetts contractors lose thousands every week to calls that go to voicemail — and callers that never leave a message.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="icon">📞</div>
+        <h3>Missed Calls Go Cold Fast</h3>
+        <p>62% of callers who reach voicemail won't call back. They just dial the next contractor on Google.</p>
+        <span class="pain-stat">62% gone forever</span>
+      </div>
+      <div class="pain-card">
+        <div class="icon">💸</div>
+        <h3>Every Call is Worth $300–$1,200</h3>
+        <p>For most MA contractors, a single booked service call is worth $300 minimum. Missing 2–3 a day adds up fast.</p>
+        <span class="pain-stat">$600–$2K/day lost</span>
+      </div>
+      <div class="pain-card">
+        <div class="icon">🌙</div>
+        <h3>After Hours = No Coverage</h3>
+        <p>Most contractors stop answering at 5 PM. Your AI doesn't. Nights and weekends are peak emergency times.</p>
+        <span class="pain-stat">40% of calls after 5pm</span>
+      </div>
+      <div class="pain-card">
+        <div class="icon">⭐</div>
+        <h3>Reviews Don't Write Themselves</h3>
+        <p>Happy customers forget. One automated text after a job is done generates 3–5x more reviews than asking in person.</p>
+        <span class="pain-stat">+10–20 reviews/month</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section class="systems" id="systems">
+  <div class="systems-inner">
+    <div class="systems-header">
+      <div class="section-eyebrow">The 5 AI Systems</div>
+      <h2 class="section-title">Everything your business needs. Nothing you don't.</h2>
+      <p class="section-sub">Each system is built specifically for your trade, your service area, and your prices. Done-for-you, live in 48 hours.</p>
+    </div>
+
+    <div class="system-card">
+      <div class="sys-num">01</div>
+      <div class="sys-body">
+        <h3>AI Receptionist — 24/7 Call Coverage</h3>
+        <span class="sys-tag">Most Impact</span>
+        <p>Your AI answers every call by name, qualifies the caller, quotes price ranges with confidence, and books the job directly into your calendar. Callers get a real conversation — not a voicemail.</p>
+        <div class="sys-bullets">
+          <span class="sys-bullet">Answers in &lt;2 seconds</span>
+          <span class="sys-bullet">Industry-trained on your services</span>
+          <span class="sys-bullet">Books directly into your calendar</span>
+          <span class="sys-bullet">Escalates emergencies to your mobile</span>
+        </div>
+      </div>
+      <div class="sys-roi">
+        <div class="roi-label">Typical ROI</div>
+        <div class="roi-value">$600–$1,200/week in recovered missed calls</div>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="sys-num">02</div>
+      <div class="sys-body">
+        <h3>Missed Call Text-Back</h3>
+        <span class="sys-tag">Fastest Win</span>
+        <p>When a call slips through, your AI fires a personalized text in under 60 seconds. It re-engages the lead by name and moves them toward booking — before they Google someone else.</p>
+        <div class="sys-bullets">
+          <span class="sys-bullet">60-second response time</span>
+          <span class="sys-bullet">Personalized by time of day</span>
+          <span class="sys-bullet">Includes booking link</span>
+          <span class="sys-bullet">Tracks all outcomes</span>
+        </div>
+      </div>
+      <div class="sys-roi">
+        <div class="roi-label">Typical ROI</div>
+        <div class="roi-value">Recovers 30–50% of leads that would've been lost</div>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="sys-num">03</div>
+      <div class="sys-body">
+        <h3>Reactivate Old Leads</h3>
+        <span class="sys-tag">Immediate Cash</span>
+        <p>Every lead that went cold over the last 6–12 months gets a personalized AI outreach sequence. Texts and emails go out automatically, converting dormant contacts into booked jobs — zero effort from you.</p>
+        <div class="sys-bullets">
+          <span class="sys-bullet">Works on any contact list</span>
+          <span class="sys-bullet">Multi-touch: text + email</span>
+          <span class="sys-bullet">Personalized for each contact</span>
+          <span class="sys-bullet">3–8 booked jobs per campaign</span>
+        </div>
+      </div>
+      <div class="sys-roi">
+        <div class="roi-label">Typical ROI</div>
+        <div class="roi-value">$5K–$15K per campaign from 100 old leads</div>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="sys-num">04</div>
+      <div class="sys-body">
+        <h3>5-Star Review Automation</h3>
+        <span class="sys-tag">Google Rankings</span>
+        <p>After every completed job, a perfectly timed review request goes out via text. It links straight to your Google Business profile and follows up once if there's no response. More reviews = higher Google Maps rank = more calls.</p>
+        <div class="sys-bullets">
+          <span class="sys-bullet">Auto-triggered after job complete</span>
+          <span class="sys-bullet">Direct Google review link</span>
+          <span class="sys-bullet">Smart follow-up at 48 hours</span>
+          <span class="sys-bullet">Filters unhappy customers</span>
+        </div>
+      </div>
+      <div class="sys-roi">
+        <div class="roi-label">Typical ROI</div>
+        <div class="roi-value">10–20 new 5-star reviews per month</div>
+      </div>
+    </div>
+
+    <div class="system-card">
+      <div class="sys-num">05</div>
+      <div class="sys-body">
+        <h3>Automated Lead Gen, Email & Appt Scheduling</h3>
+        <span class="sys-tag">Full Funnel</span>
+        <p>Capture leads from your website or ads, nurture them with branded email sequences, and guide them straight to your booking calendar — automatically. No manual follow-up needed.</p>
+        <div class="sys-bullets">
+          <span class="sys-bullet">Captures from web forms + ads</span>
+          <span class="sys-bullet">3–5 touch email sequence</span>
+          <span class="sys-bullet">Integrates with major schedulers</span>
+          <span class="sys-bullet">Auto sends confirmations + reminders</span>
+        </div>
+      </div>
+      <div class="sys-roi">
+        <div class="roi-label">Typical ROI</div>
+        <div class="roi-value">Saves 5–10 hrs/week in manual follow-up</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="proof-inner">
+    <h2>MA Contractors are already seeing results.</h2>
+    <p class="proof-sub">Here's what happens when your phone stops going to voicemail.</p>
+
+    <div class="proof-cards">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"We were losing 3–4 calls a day to voicemail. First week with the AI, we booked 6 jobs we would've missed completely. It paid for itself in day two."</p>
+        <div class="proof-name">Mike T.</div>
+        <div class="proof-biz">HVAC — Worcester, MA</div>
+        <div class="proof-result">6 new jobs in week one</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"The reactivation campaign was unreal. We sent it to 80 old leads on a Friday afternoon. By Monday we had 4 booked appointments. That's almost $8K in work we left on the table."</p>
+        <div class="proof-name">Dave R.</div>
+        <div class="proof-biz">Roofing — Springfield, MA</div>
+        <div class="proof-result">$8K recovered in 72 hours</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <p class="proof-quote">"We went from 12 Google reviews to 47 in about 6 weeks. Now we rank above companies that have been in business way longer than us. The phone rings more."</p>
+        <div class="proof-name">Chris M.</div>
+        <div class="proof-biz">Plumbing — Framingham, MA</div>
+        <div class="proof-result">35 new reviews in 6 weeks</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">Transparent. No contracts. Guaranteed.</h2>
+      <p class="section-sub" style="margin:0 auto;">Start with what you need. Add more as your business grows.</p>
+    </div>
+
+    <div class="tiers">
+      <div class="tier">
+        <div class="tier-name">Starter</div>
+        <div class="tier-systems">2 AI Systems</div>
+        <div class="tier-price"><sup>$</sup>297</div>
+        <div class="tier-period">/month</div>
+        <div class="tier-setup">+ $497 one-time setup</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature"><span class="check">✓</span> AI Receptionist (24/7)</div>
+        <div class="tier-feature"><span class="check">✓</span> Missed Call Text-Back</div>
+        <div class="tier-feature"><span class="check">✓</span> Custom industry training</div>
+        <div class="tier-feature"><span class="check">✓</span> Live in 48 hours</div>
+        <a href="#get-started" class="tier-cta">Get Started</a>
+      </div>
+
+      <div class="tier popular">
+        <div class="popular-badge">Most Popular</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-systems">4 AI Systems</div>
+        <div class="tier-price"><sup>$</sup>597</div>
+        <div class="tier-period">/month</div>
+        <div class="tier-setup">+ $797 one-time setup</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature"><span class="check">✓</span> AI Receptionist (24/7)</div>
+        <div class="tier-feature"><span class="check">✓</span> Missed Call Text-Back</div>
+        <div class="tier-feature"><span class="check">✓</span> 5-Star Review Automation</div>
+        <div class="tier-feature"><span class="check">✓</span> Reactivate Old Leads</div>
+        <div class="tier-feature"><span class="check">✓</span> Monthly performance report</div>
+        <a href="#get-started" class="tier-cta">Get Started</a>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Full Stack</div>
+        <div class="tier-systems">All 5 AI Systems</div>
+        <div class="tier-price"><sup>$</sup>897</div>
+        <div class="tier-period">/month</div>
+        <div class="tier-setup">+ $997 one-time setup</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feature"><span class="check">✓</span> All 5 AI systems</div>
+        <div class="tier-feature"><span class="check">✓</span> Lead Gen + Email Sequences</div>
+        <div class="tier-feature"><span class="check">✓</span> Full appt scheduling automation</div>
+        <div class="tier-feature"><span class="check">✓</span> Priority support + monthly call</div>
+        <div class="tier-feature"><span class="check">✓</span> Quarterly campaign runs</div>
+        <a href="#get-started" class="tier-cta">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <div class="guar-box">
+      <div class="guar-icon">🛡️</div>
+      <h2>The ProBot Guarantee</h2>
+      <p><span class="guar-highlight">3 booked jobs in your first 30 days — or your monthly fee is zero.</span> No contracts. No lock-in. No excuses. If the AI systems don't deliver real results for your Massachusetts business, you don't pay. That's the deal and we stand behind it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <div class="section-eyebrow">Process</div>
+      <h2 class="section-title">You're live in 48 hours.</h2>
+      <p class="section-sub" style="margin:0 auto;">Four steps. No tech knowledge needed. We handle everything.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-circle">1</div>
+        <h3>Complete the Intake Form</h3>
+        <p>15 minutes. Tell us your services, hours, pricing, and how you like to work. This powers your AI.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">2</div>
+        <h3>We Build Everything</h3>
+        <p>Rob configures your AI agent, writes your scripts, and tests every workflow. Zero work on your end.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">3</div>
+        <h3>Go Live</h3>
+        <p>Your agent activates. Your automations run. You start recovering leads and booking jobs immediately.</p>
+      </div>
+      <div class="step">
+        <div class="step-circle">4</div>
+        <h3>Scale Up</h3>
+        <p>Review results at 30 days. Add more systems, expand your coverage, or run a reactivation campaign.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCAL SECTION -->
+<section class="local">
+  <div class="local-inner">
+    <div class="local-text">
+      <div class="section-eyebrow">Massachusetts Focus</div>
+      <h2 class="section-title">Built for contractors who work here.</h2>
+      <p class="section-sub">Your AI knows the MA market — service areas, permit terminology, seasonal demand spikes, and what local homeowners expect when they call a contractor.</p>
+      <p style="font-size:14px;color:var(--slate);">Currently serving contractors across Central and Eastern Massachusetts:</p>
+      <div class="local-markets">
+        <span class="market-chip">Worcester</span>
+        <span class="market-chip">Springfield</span>
+        <span class="market-chip">Framingham</span>
+        <span class="market-chip">Lowell</span>
+        <span class="market-chip">Cambridge</span>
+        <span class="market-chip">Quincy</span>
+        <span class="market-chip">Brockton</span>
+        <span class="market-chip">New Bedford</span>
+        <span class="market-chip">Fall River</span>
+        <span class="market-chip">Shrewsbury</span>
+        <span class="market-chip">Natick</span>
+        <span class="market-chip">+ surrounding towns</span>
+      </div>
+    </div>
+    <div class="local-visual">
+      <h3>Average client results at 60 days</h3>
+      <div class="metric-row">
+        <span class="metric-label">Missed calls recovered</span>
+        <span class="metric-val">+34%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">New Google reviews/month</span>
+        <span class="metric-val">+14</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Old leads reactivated</span>
+        <span class="metric-val">12–18%</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Time saved per week</span>
+        <span class="metric-val">6–10 hrs</span>
+      </div>
+      <div class="metric-row">
+        <span class="metric-label">Avg. additional monthly revenue</span>
+        <span class="metric-val">$4,200+</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="get-started">
+  <div class="final-cta-inner">
+    <h2>Stop losing jobs to <em>voicemail.</em></h2>
+    <p>Your AI is ready to be built. Fill out the intake form in 15 minutes and Rob will have your systems live within 48 hours. No tech knowledge required.</p>
+    <div class="cta-pair">
+      <a href="ProBot-Client-Intake-Form.html" class="btn-primary" style="font-size:16px;padding:16px 36px;">Complete the Intake Form →</a>
+    </div>
+    <div class="cta-contact">
+      <p>Prefer to talk first? Text or call Rob directly.</p>
+      <a href="tel:7813073117">(781) 307-3117</a>
+      <p style="margin-top:4px;font-size:12px;">rob@probotsolutions.com &nbsp;|&nbsp; probotma.boston</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand"><span>ProBot</span> MA — AI Systems for Massachusetts Contractors</div>
+  <div class="footer-links">
+    <a href="#systems">Systems</a>
+    <a href="#pricing">Pricing</a>
+    <a href="ProBot-Client-Intake-Form.html">Intake Form</a>
+    <a href="tel:7813073117">(781) 307-3117</a>
+    <a href="https://probotma.boston" target="_blank">ProBot Solutions</a>
+  </div>
+  <p class="footer-copy">© 2026 ProBot Solutions · rob@probotsolutions.com · probotma.boston · Results guaranteed or monthly fee is zero.</p>
+</footer>
+
+<script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+</body>
+</html>
