@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk to Harvey — ProBot Solutions AI Receptionist</title>
+  <meta name="description" content="Talk live with Harvey, ProBot Solutions' AI receptionist. Then buy the AI Voice Agent Playbook, pick a plan, or book a free 15-minute demo. Boston, MA · Serving Massachusetts & New England." />
+  <meta name="geo.region" content="US-MA" />
+  <meta name="geo.placename" content="Boston, Massachusetts" />
+  <meta name="geo.position" content="42.3601;-71.0589" />
+  <meta name="ICBM" content="42.3601, -71.0589" />
+  <link rel="canonical" href="https://probotma.boston/talk-to-harvey.html" />
+  <meta property="og:title" content="Talk to Harvey — ProBot AI Receptionist" />
+  <meta property="og:description" content="Hear a live AI receptionist answer your call. Then buy or book in one click." />
+  <meta property="og:url" content="https://probotma.boston/talk-to-harvey.html" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="https://probotma.boston/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0EA5E9;
+      --primary-dark: #0284C7;
+      --primary-light: #E0F2FE;
+      --dark: #0c1a2e;
+      --neutral: #334155;
+      --muted: #64748b;
+      --white: #ffffff;
+      --bg-soft: #f8fafc;
+      --border: #e2e8f0;
+      --on-dark-muted: #cbd5e1;
+      --radius: 14px;
+      --radius-lg: 22px;
+      --shadow: 0 10px 30px rgba(12, 26, 46, 0.08);
+      --transition: 0.25s ease;
+      --container: 1160px;
+      --gutter: 1.25rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', system-ui, sans-serif; color: var(--dark); background: var(--white); line-height: 1.6; }
+    a { color: var(--primary-dark); }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--gutter); }
+    .section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+    .eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--primary); margin-bottom: 0.75rem; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 1rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.25rem); font-weight: 800; }
+    h3 { font-size: 1.2rem; font-weight: 700; }
+    .lead { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--neutral); max-width: 640px; }
+    .text-center { text-align: center; }
+    .text-center .lead { margin-left: auto; margin-right: auto; }
+
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.9rem 1.5rem; border-radius: var(--radius); font-weight: 700; text-decoration: none; transition: background var(--transition), transform var(--transition), border-color var(--transition); border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary { background: var(--primary); color: var(--white); }
+    .btn--primary:hover { background: var(--primary-dark); }
+    .btn--outline { background: transparent; color: var(--primary-dark); border-color: var(--primary); }
+    .btn--outline:hover { background: var(--primary-light); }
+    .btn--light { background: var(--white); color: var(--dark); }
+    .btn--block { width: 100%; }
+
+    /* ── Header ── */
+    .topbar { border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 10; }
+    .topbar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 0.85rem; padding-bottom: 0.85rem; }
+    .topbar__logo img { height: 28px; display: block; }
+    .topbar__links { display: flex; gap: 0.5rem; }
+    .topbar__links .btn { padding: 0.55rem 1rem; font-size: 0.9rem; }
+    @media (max-width: 560px) { .topbar__links .btn--outline { display: none; } }
+
+    /* ── Hero / Harvey ── */
+    .hero { background: var(--dark); color: var(--white); }
+    .hero .lead { color: var(--on-dark-muted); }
+    .hero__grid { display: grid; gap: 2.5rem; align-items: center; }
+    @media (min-width: 900px) { .hero__grid { grid-template-columns: 1.1fr 0.9fr; } }
+    .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.75rem; }
+    .harvey-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center; }
+    .harvey-card__live { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem; }
+    .harvey-card__dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); animation: pulse 1.6s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6); } 70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); } 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); } }
+    .harvey-card p { color: var(--on-dark-muted); margin: 0 0 1.25rem; }
+    .harvey-card ul { text-align: left; color: var(--on-dark-muted); padding-left: 1.2rem; margin: 1.25rem 0 0; font-size: 0.95rem; }
+    .harvey-card__widget { min-height: 80px; display: flex; justify-content: center; }
+
+    /* ── Choice cards ── */
+    .choices { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+    @media (min-width: 760px) { .choices { grid-template-columns: 1fr 1fr; } }
+    .choice { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; box-shadow: var(--shadow); display: flex; flex-direction: column; text-align: left; }
+    .choice__icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .choice p { color: var(--neutral); flex: 1; }
+
+    /* ── Products ── */
+    .products { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
+    @media (min-width: 900px) { .products { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 600px) and (max-width: 899px) { .products { grid-template-columns: 1fr 1fr; } }
+    .product { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column; background: var(--white); text-align: left; }
+    .product--featured { border: 2px solid var(--primary); }
+    .product__tag { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary-dark); background: var(--primary-light); border-radius: 999px; padding: 0.2rem 0.65rem; align-self: flex-start; margin-bottom: 0.75rem; }
+    .product__price { font-size: 2rem; font-weight: 800; margin: 0.25rem 0; }
+    .product__price small { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+    .product ul { padding-left: 1.1rem; color: var(--neutral); font-size: 0.95rem; flex: 1; margin: 0.75rem 0 1.25rem; }
+    .product__note { font-size: 0.8rem; color: var(--muted); margin-top: 0.6rem; text-align: center; }
+    .bg-soft { background: var(--bg-soft); }
+
+    /* ── Booking ── */
+    .booking__frame { margin-top: 2rem; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); box-shadow: var(--shadow); }
+    .booking__frame iframe { width: 100%; min-height: 720px; border: 0; display: block; }
+    .booking__alt { margin-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+
+    /* ── Footer ── */
+    .footer { background: var(--dark); color: var(--on-dark-muted); padding: 2.5rem 0; font-size: 0.9rem; }
+    .footer a { color: var(--white); }
+    .footer__inner { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+    <a class="topbar__logo" href="https://probotma.boston/" aria-label="ProBot Solutions home">
+      <img src="https://probotma.boston/logo.svg" alt="ProBot Solutions" />
+    </a>
+    <nav class="topbar__links" aria-label="Page actions">
+      <a class="btn btn--outline" href="#buy">Buy</a>
+      <a class="btn btn--primary" href="#book">Book a Demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ═══ Hero + Harvey ═══ -->
+  <section class="hero section" id="harvey">
+    <div class="container hero__grid">
+      <div>
+        <span class="eyebrow">AI Receptionist · 24/7 Coverage</span>
+        <h1>Talk to Harvey. He answers every call your business misses.</h1>
+        <p class="lead">Harvey is the same AI receptionist we set up for contractors, HVAC, and plumbing companies across Massachusetts and New England. He answers every call, books the appointment, and sends you the details, day or night.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#book">Book a Free 15-Min Demo</a>
+          <a class="btn btn--light" href="#buy">See What You Can Buy</a>
+        </div>
+      </div>
+
+      <div class="harvey-card">
+        <div class="harvey-card__live"><span class="harvey-card__dot" aria-hidden="true"></span> Live now</div>
+        <h2>Try him yourself</h2>
+        <p>Click below and allow your microphone. Ask him anything a customer would.</p>
+        <div class="harvey-card__widget">
+          <elevenlabs-convai agent-id="agent_0901kmjs00zgf61r0g63b5n6a5dt"></elevenlabs-convai>
+        </div>
+        <ul>
+          <li>"My AC just quit. Can someone come today?"</li>
+          <li>"How much does a water heater install run?"</li>
+          <li>"Can I book an estimate for Saturday?"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Two paths ═══ -->
+  <section class="section">
+    <div class="container text-center">
+      <span class="eyebrow">Next step</span>
+      <h2>Liked what you heard? Pick your path.</h2>
+      <p class="lead">Do it yourself with the Playbook, or have us set up a receptionist like Harvey for your business.</p>
+      <div class="choices">
+        <div class="choice">
+          <div class="choice__icon" aria-hidden="true">🛒</div>
+          <h3>Buy now</h3>
+          <p>Get the 25-Industry AI Voice Agent Playbook today, or pick a done-for-you monthly plan.</p>
+          <a class="btn btn--outline btn--block" href="#buy">See options</a>
+        </div>
+        <div class="choice">
+          <div class="choice__icon" aria-hidden="true">📅</div>
+          <h3>Book a free demo</h3>
+          <p>A 15-minute call. We'll show you how much missed calls are costing you and what Harvey would say for your business.</p>
+          <a class="btn btn--primary btn--block" href="#book">Pick a time</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Buy ═══ -->
+  <section class="section bg-soft" id="buy">
+    <div class="container text-center">
+      <span class="eyebrow">Buy</span>
+      <h2>Do it yourself, or let us do it for you</h2>
+      <p class="lead">No contracts. 30-day money-back guarantee on every plan.</p>
+
+      <div class="products">
+        <div class="product">
+          <span class="product__tag">Do it yourself</span>
+          <h3>AI Voice Agent Playbook</h3>
+          <div class="product__price">$97 <small>one-time</small></div>
+          <ul>
+            <li>25 ready-to-use AI receptionist scripts</li>
+            <li>Works with ElevenLabs, Vapi, Retell, Bland</li>
+            <li>Instant download</li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="https://probotmaestro.gumroad.com/l/omofdf" target="_blank" rel="noopener">Buy the Playbook</a>
+          <div class="product__note">Secure checkout via Gumroad</div>
+        </div>
+
+        <div class="product">
+          <span class="product__tag">Done for you</span>
+          <h3>Starter</h3>
+          <div class="product__price">$297 <small>/mo</small></div>
+          <ul>
+            <li>AI receptionist, 24/7</li>
+            <li>Up to 500 calls/month</li>
+            <li>Appointment booking</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="#book" data-plan="Starter">Get Starter</a>
+        </div>
+
+        <div class="product product--featured">
+          <span class="product__tag">Most popular</span>
+          <h3>Growth</h3>
+          <div class="product__price">$497 <small>/mo</small></div>
+          <ul>
+            <li>Everything in Starter</li>
+            <li>Up to 1,500 calls/month</li>
+            <li>SMS emergency dispatch + follow-up</li>
+          </ul>
+          <a class="btn btn--primary btn--block" href="#book" data-plan="Growth">Get Growth</a>
+        </div>
+
+        <div class="product">
+          <span class="product__tag">Done for you</span>
+          <h3>Pro</h3>
+          <div class="product__price">$697 <small>/mo</small></div>
+          <ul>
+            <li>Unlimited calls</li>
+            <li>Custom AI voice</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="#book" data-plan="Pro">Get Pro</a>
+        </div>
+      </div>
+      <p class="booking__alt">Monthly plans start with a quick setup call so Harvey learns your services, prices, and hours. Full plan details at <a href="https://probotma.boston/pricing.html">probotma.boston/pricing</a>.</p>
+    </div>
+  </section>
+
+  <!-- ═══ Book ═══ -->
+  <section class="section" id="book">
+    <div class="container text-center">
+      <span class="eyebrow">Book</span>
+      <h2>Book your free 15-minute demo</h2>
+      <p class="lead" id="bookLead">Pick any open time.</p>
+      <div class="booking__frame">
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW" title="Book a demo with ProBot Solutions" loading="lazy"></iframe>
+      </div>
+      <p class="booking__alt">Calendar not loading? <a href="https://api.leadconnectorhq.com/widget/booking/fyAxqrvzu6wILHjAFZfW" target="_blank" rel="noopener">Open it in a new tab</a>, text <a href="sms:+17813073117">(781) 307-3117</a>, or email <a href="mailto:rob@probotsolutions.com">rob@probotsolutions.com</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div><strong style="color:var(--white);">ProBot Solutions</strong><br>Boston, MA · Serving Massachusetts &amp; New England</div>
+    <div><a href="tel:+17813073117">(781) 307-3117</a><br><a href="mailto:rob@probotsolutions.com">rob@probotsolutions.com</a></div>
+    <div><a href="https://probotma.boston/">probotma.boston</a><br><a href="https://probotma.boston/pricing.html">Pricing</a></div>
+  </div>
+</footer>
+
+<script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+<script>
+  (function () {
+    'use strict';
+
+    // ─── Plan buttons: note the chosen plan above the booking calendar ───
+    const bookLead = document.querySelector('#bookLead');
+    document.querySelectorAll('[data-plan]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        bookLead.textContent = 'You picked the ' + btn.dataset.plan + ' plan. Book a quick setup call below and we\'ll get Harvey answering your phones.';
+      });
+    });
+  })();
+</script>
+</body>
+</html>
